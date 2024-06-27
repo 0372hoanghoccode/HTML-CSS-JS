@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box; /* Đảm bảo tất cả các phần tử đều tính toán kích thước với border và padding bao gồm trong width và height */
+}
+
+h1{
+  font-family: 'Roboto', sans-serif; /* Thiết lập font chữ chính cho toàn bộ trang là 'Roboto', nếu không có thì sử dụng font sans-serif */
+  display: flex; /* Sử dụng Flexbox để bố trí các phần tử con */
+  flex-direction: column; /* Sắp xếp các phần tử con theo hướng dọc */
+  align-items: center; /* Căn giữa các phần tử con theo chiều ngang */
+  justify-content: center; /* Căn giữa các phần tử con theo chiều dọc */
+  height: 100vh; /* Thiết lập chiều cao của phần tử body bằng 100% chiều cao của viewport */
+  overflow: hidden; /* Ẩn các phần tử tràn ra ngoài phần tử body */
+  margin: 0; /* Loại bỏ margin mặc định của phần tử body */
+}

@@ -1,0 +1,20 @@
+Nếu không đặt height: 100vh, body sẽ chỉ có chiều cao dựa trên nội dung bên trong. 
+Khi đó, việc căn giữa theo chiều dọc bằng justify-content: center; sẽ không có tác dụng mong muốn nếu nội dung không đủ cao để tạo ra không gian căn giữa.
+vh là % phần nhìn thấy kiểu như 1vh là 1% phần nhìn thầy
+
+
+Box-sizing: border-box;
+
+Thuộc tính này đảm bảo rằng kích thước của các phần tử (width và height) sẽ tính toán cả border và padding bên trong, không bị thay đổi khi thêm border và padding.
+Font-family và Flexbox Layout:
+
+Thiết lập font chữ chính cho trang web là 'Roboto' (nếu không có sẽ sử dụng font sans-serif) cho tất cả các phần tử h1.
+Sử dụng Flexbox để bố trí các phần tử con của h1 theo hướng dọc (flex-direction: column), căn giữa chúng theo chiều ngang (align-items: center) và chiều dọc (justify-content: center).
+Chiều cao và căn giữa theo chiều dọc:
+
+Thiết lập chiều cao của phần tử h1 bằng 100% chiều cao của viewport (height: 100vh), giúp phần tử này chiếm toàn bộ màn hình khi mở rộng.
+justify-content: center giúp căn giữa các phần tử con theo chiều dọc trong phần tử h1, đảm bảo nội dung bên trong được căn giữa trên màn hình.
+Quản lý overflow và margin:
+
+overflow: hidden được sử dụng để ẩn bất kỳ nội dung nào tràn ra ngoài phần tử h1.
+margin: 0 loại bỏ margin mặc định của phần tử h1, giúp đảm bảo không có khoảng cách không mong muốn xảy ra.
