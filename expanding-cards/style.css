@@ -49,7 +49,8 @@ body {
   position: relative;
   /* Hiệu ứng chuyển đổi khi thay đổi flex */
   transition: flex 0.5s ease-in;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Đổ bóng cho panel */
+  /* Đổ bóng cho panel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
 }
 
 .panel:hover {
