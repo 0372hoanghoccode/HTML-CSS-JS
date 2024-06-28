@@ -1,0 +1,4 @@
+Khi display: flex trên body: body có một phần tử con trực tiếp là container, nên không có sự thay đổi đáng kể trong cách sắp xếp các phần tử panel bên trong container.
+Khi display: flex trên container: Các phần tử panel bên trong container sẽ được sắp xếp theo hàng ngang (mặc định của Flexbox).
+
+ban đầu html luôn mặc định các thẻ div xếp chống lên nhau sẽ như 1 cột sau khi flex sẽ thành hàng ngang (chỉ áp dụng với phần tử con trực tiếp)
