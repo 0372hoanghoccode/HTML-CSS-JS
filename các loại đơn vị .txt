@@ -1,0 +1,27 @@
+1. Đơn vị độ dài
+Pixels (px): Là đơn vị đo kích thước tuyệt đối và là đơn vị phổ biến nhất trong thiết kế web. Ví dụ: width: 200px;, margin: 10px;.
+
+Percentage (%): Được sử dụng để xác định kích thước hoặc vị trí dựa trên phần trăm của phần tử cha. Ví dụ: width: 50%;, top: 20%;.
+
+Viewport Width/Height (vw/vh): Được sử dụng để xác định kích thước dựa trên chiều rộng (vw) và chiều cao (vh) của cửa sổ trình duyệt. Ví dụ: width: 50vw;, height: 80vh;.
+
+REM và EM: REM (Root EM) và EM là đơn vị sử dụng cho kích thước phông chữ. REM được tính theo kích thước phông chữ của thẻ <html>, trong khi EM thường được tính theo kích thước phông chữ của phần tử cha gần nhất. Ví dụ: font-size: 1.2rem;, padding: 2em;.
+
+2. Đơn vị màu sắc
+Hexadecimal (#RRGGBB): Mã màu sắc bao gồm 6 ký tự hex để xác định màu sắc dựa trên các giá trị Red (R), Green (G), và Blue (B). Ví dụ: color: #ff0000; (màu đỏ), background-color: #00ff00; (màu xanh lá cây).
+
+RGB và RGBA: Sử dụng giá trị từ 0 đến 255 để xác định màu sắc. RGBA cũng bao gồm một giá trị alpha để xác định độ mờ của màu sắc. Ví dụ: color: rgba(255, 0, 0, 0.5); (màu đỏ với độ mờ 50%).
+
+HSL và HSLA: Sử dụng giá trị Hue (màu sắc), Saturation (bão hòa) và Lightness (sáng tối) để xác định màu sắc. HSLA cũng bao gồm một giá trị alpha tương tự RGBA. Ví dụ: color: hsla(120, 100%, 50%, 0.7); (màu xanh lá cây với độ mờ 70%).
+
+3. Đơn vị thời gian và tốc độ
+Seconds (s): Sử dụng cho các thuộc tính thời gian như thời gian chuyển đổi hoặc thời gian hiệu ứng. Ví dụ: transition: opacity 0.3s ease-in-out;, animation-duration: 2s;.
+
+Milliseconds (ms): Đơn vị thời gian nhỏ hơn, thường được sử dụng để điều chỉnh hiệu ứng hoặc thao tác nhanh trên giao diện. Ví dụ: transition-delay: 200ms;, animation-duration: 500ms;.
+
+4. Đơn vị góc độ
+Degrees (deg): Được sử dụng để xác định góc quay của các phần tử, như trong thuộc tính transform. Ví dụ: transform: rotate(45deg);, background: linear-gradient(45deg, #ff0000, #00ff00);.
+5. Đơn vị dùng cho phương thức liên kết
+Absolute URL: Đường dẫn đầy đủ tới một tài nguyên trên Internet, bao gồm cả tên miền và đường dẫn. Ví dụ: <img src="https://example.com/image.jpg">.
+
+Relative URL: Đường dẫn tới một tài nguyên dựa trên vị trí tương đối của tài nguyên hiện tại. Ví dụ: <img src="images/photo.jpg"> (nếu photo.jpg nằm trong thư mục images cùng cấp với tệp HTML).

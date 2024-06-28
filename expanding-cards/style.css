@@ -19,8 +19,6 @@ body {
   overflow: hidden;
   /* Loại bỏ khoảng cách mặc định của body */
   margin: 0;
-  /* Đặt nền màu xám đậm */
-  background: #333;
 }
 
 .container {
@@ -51,6 +49,11 @@ body {
   position: relative;
   /* Hiệu ứng chuyển đổi khi thay đổi flex */
   transition: flex 0.5s ease-in;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Đổ bóng cho panel */
+}
+
+.panel:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Đổ bóng khi di chuột qua */
 }
 
 .panel h3 {
