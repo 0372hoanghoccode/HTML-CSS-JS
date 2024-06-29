@@ -1,145 +1,170 @@
+/* Import font Lato từ Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+/* Đặt tất cả các phần tử có tính chất box-sizing là border-box */
 * {
   box-sizing: border-box;
 }
 
+/* Đặt các thuộc tính cơ bản cho body */
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: #333;
-  color: #222;
-  overflow-x: hidden;
-  margin: 0;
+  font-family: 'Lato', sans-serif; /* Font chữ là Lato */
+  background-color: #333; /* Màu nền là xám đậm */
+  color: #222; /* Màu chữ là xám đậm */
+  overflow-x: hidden; /* Ẩn overflow theo chiều ngang */
+  margin: 0; /* Loại bỏ margin mặc định */
 }
 
+/* Định nghĩa kiểu dáng và hiệu ứng cho container */
 .container {
-  background-color: #fafafa;
-  transform-origin: top left;
-  transition: transform 0.5s linear;
-  width: 100vw;
-  min-height: 100vh;
-  padding: 50px;
+  background-color: #fafafa; /* Màu nền là trắng nhạt */
+  transform-origin: top left; /* Điểm gốc để thực hiện transform là góc trên bên trái */
+  transition: transform 0.5s linear; /* Hiệu ứng chuyển đổi trong 0.5 giây */
+  width: 100vw; /* Chiều rộng là 100% viewport width */
+  min-height: 100vh; /* Chiều cao tối thiểu là 100% viewport height */
+  padding: 50px; /* Khoảng đệm là 50px */
 }
 
+/* Thay đổi transform của container khi có class show-nav */
 .container.show-nav {
-  transform: rotate(-20deg);
+  transform: rotate(-20deg); /* Xoay container -20 độ */
 }
 
+/* Định nghĩa vị trí cố định cho circle-container */
 .circle-container {
-  position: fixed;
-  top: -100px;
-  left: -100px;
+  position: fixed; /* Vị trí cố định */
+  top: -100px; /* Cách trên 100px */
+  left: -100px; /* Cách trái 100px */
 }
 
+/* Định nghĩa kiểu dáng và hiệu ứng cho circle */
 .circle {
-  background-color: #ff7979;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  position: relative;
-  transition: transform 0.5s linear;
+  background-color: #ff7979; /* Màu nền là đỏ nhạt */
+  height: 200px; /* Chiều cao là 200px */
+  width: 200px; /* Chiều rộng là 200px */
+  border-radius: 50%; /* Bo tròn thành hình tròn */
+  position: relative; /* Định vị tương đối */
+  transition: transform 0.5s linear; /* Hiệu ứng chuyển đổi trong 0.5 giây */
 }
 
+/* Thay đổi transform của circle khi container có class show-nav */
 .container.show-nav .circle {
-  transform: rotate(-70deg);
+  transform: rotate(-70deg); /* Xoay circle -70 độ */
 }
 
+/* Định nghĩa kiểu dáng và vị trí cho các nút trong circle */
 .circle button {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100px;
-  background: transparent;
-  border: 0;
-  font-size: 26px;
-  color: #fff;
+  cursor: pointer; /* Con trỏ chuột là pointer */
+  position: absolute; /* Định vị tuyệt đối */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  height: 100px; /* Chiều cao là 100px */
+  background: transparent; /* Nền trong suốt */
+  border: 0; /* Không có viền */
+  font-size: 26px; /* Kích thước chữ là 26px */
+  color: #fff; /* Màu chữ là trắng */
 }
 
+/* Loại bỏ viền focus khi nút được chọn */
 .circle button:focus {
-  outline: none;
+  outline: none; /* Không có viền focus */
 }
 
+/* Định nghĩa vị trí cho nút mở */
 .circle button#open {
-  left: 60%;
+  left: 60%; /* Dịch chuyển sang trái 60% */
 }
 
+/* Định nghĩa vị trí và transform cho nút đóng */
 .circle button#close {
-  top: 60%;
-  transform: rotate(90deg);
-  transform-origin: top left;
+  top: 60%; /* Dịch chuyển xuống dưới 60% */
+  transform: rotate(90deg); /* Xoay nút 90 độ */
+  transform-origin: top left; /* Điểm gốc để thực hiện transform là góc trên bên trái */
 }
 
+/* Thay đổi vị trí của các phần tử nav khi container có class show-nav */
 .container.show-nav + nav li {
-  transform: translateX(0);
-  transition-delay: 0.3s;
+  transform: translateX(0); /* Dịch chuyển phần tử về vị trí ban đầu */
+  transition-delay: 0.3s; /* Thời gian chờ hiệu ứng là 0.3 giây */
 }
 
+/* Định nghĩa vị trí cố định cho nav */
 nav {
-  position: fixed;
-  bottom: 40px;
-  left: 0;
-  z-index: 100;
+  position: fixed; /* Vị trí cố định */
+  bottom: 40px; /* Cách dưới 40px */
+  left: 0; /* Cách trái 0px */
+  z-index: 100; /* Độ ưu tiên hiển thị là 100 */
 }
 
+/* Định nghĩa kiểu dáng cho danh sách ul trong nav */
 nav ul {
-  list-style-type: none;
-  padding-left: 30px;
+  list-style-type: none; /* Loại bỏ dấu chấm đầu dòng */
+  padding-left: 30px; /* Khoảng đệm bên trái là 30px */
 }
 
+/* Định nghĩa kiểu dáng và hiệu ứng cho từng mục li trong danh sách ul */
 nav ul li {
-  text-transform: uppercase;
-  color: #fff;
-  margin: 40px 0;
-  transform: translateX(-100%);
-  transition: transform 0.4s ease-in;
+  text-transform: uppercase; /* Viết hoa toàn bộ chữ */
+  color: #fff; /* Màu chữ là trắng */
+  margin: 40px 0; /* Khoảng cách trên dưới là 40px */
+  transform: translateX(-100%); /* Dịch chuyển phần tử ra khỏi màn hình bên trái */
+  transition: transform 0.4s ease-in; /* Hiệu ứng chuyển đổi trong 0.4 giây */
 }
 
+/* Định nghĩa kích thước và khoảng cách cho các biểu tượng i trong li */
 nav ul li i {
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 20px; /* Kích thước chữ là 20px */
+  margin-right: 10px; /* Khoảng cách bên phải là 10px */
 }
 
+/* Thay đổi vị trí và khoảng cách cho các mục li tiếp theo */
 nav ul li + li {
-  margin-left: 15px;
-  transform: translateX(-150%);
+  margin-left: 15px; /* Khoảng cách bên trái là 15px */
+  transform: translateX(-150%); /* Dịch chuyển phần tử ra khỏi màn hình bên trái */
 }
 
 nav ul li + li + li {
-  margin-left: 30px;
-  transform: translateX(-200%);
+  margin-left: 30px; /* Khoảng cách bên trái là 30px */
+  transform: translateX(-200%); /* Dịch chuyển phần tử ra khỏi màn hình bên trái */
 }
 
-nav a{
-  color: #fafafa;
-  text-decoration: none;
-  transition: all 0.5s;
+/* Định nghĩa kiểu dáng cho các liên kết trong nav */
+nav a {
+  color: #fafafa; /* Màu chữ là trắng nhạt */
+  text-decoration: none; /* Loại bỏ gạch chân */
+  transition: all 0.5s; /* Hiệu ứng chuyển đổi trong 0.5 giây */
 }
 
+/* Thay đổi kiểu dáng liên kết khi hover */
 nav a:hover {
-  color: #FF7979;
-  font-weight: bold;
+  color: #FF7979; /* Màu chữ là đỏ nhạt khi hover */
+  font-weight: bold; /* Đậm chữ khi hover */
 }
 
+/* Định nghĩa kiểu dáng cho hình ảnh trong content */
 .content img {
-  max-width: 100%;
+  max-width: 100%; /* Chiều rộng tối đa là 100% */
 }
 
+/* Định nghĩa bố cục và khoảng cách cho content */
 .content {
-  max-width: 1000px;
-  margin: 50px auto;
+  max-width: 1000px; /* Chiều rộng tối đa là 1000px */
+  margin: 50px auto; /* Căn giữa với khoảng cách trên dưới là 50px */
 }
 
+/* Định nghĩa kiểu dáng cho tiêu đề h1 trong content */
 .content h1 {
-  margin: 0;
+  margin: 0; /* Loại bỏ margin */
 }
 
+/* Định nghĩa kiểu dáng cho small trong content */
 .content small {
-  color: #555;
-  font-style: italic;
+  color: #555; /* Màu chữ là xám nhạt */
+  font-style: italic; /* In nghiêng chữ */
 }
 
+/* Định nghĩa kiểu dáng cho đoạn văn p trong content */
 .content p {
-  color: #333;
-  line-height: 1.5;
+  color: #333; /* Màu chữ là xám đậm */
+  line-height: 1.5; /* Chiều cao dòng là 1.5 */
 }
