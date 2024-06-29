@@ -20,7 +20,7 @@ body {
   overflow: hidden;
   margin: 0;
 }
-
+ /*tại sao phải center container nó mới căn nút */
 .container {
   text-align: center;
 }
@@ -33,7 +33,7 @@ body {
   max-width: 100%;
   width: 350px;
 }
-
+/*tạo 1 lớp giả là thanh màu đen cao 4px */
 .progress-container::before {
   content: '';
   background-color: var(--line-border-empty);
@@ -45,7 +45,7 @@ body {
   width: 100%;
   z-index: -1;
 }
-
+/*tạo lớp giả là thanh xanh biển cao 4px */
 .progress {
   background-color: var(--line-border-fill);
   position: absolute;
@@ -68,7 +68,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 3px solid var(--line-border-empty);
-  transition: 0.4s ease;
+  transition: 1s ease;
 }
 
 .circle.active {
