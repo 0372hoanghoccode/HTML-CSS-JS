@@ -1,0 +1,32 @@
+
+Công thức (actives.length - 1) / (circles.length - 1) * 100 + '%' được áp dụng trong các tình huống mà bạn cần cập nhật chiều rộng của một thanh tiến trình dựa trên số lượng các bước đã hoàn thành.
+ Dưới đây là một số ví dụ cụ thể về khi nào nên áp dụng công thức này:
+
+1. Thanh Tiến Trình Dạng Bước (Step Progress Bar)
+Giả sử bạn có một giao diện người dùng với nhiều bước, và bạn muốn hiển thị cho người dùng thấy họ đang ở bước nào trong quy trình.
+
+Ví dụ: Bạn có 4 bước và đang ở bước thứ 3.
+
+Tổng số bước: 4
+Bước hiện tại: 3
+Khi người dùng tiến hoặc lùi qua các bước, công thức này sẽ giúp bạn cập nhật chiều rộng của thanh tiến trình để phản ánh số bước đã hoàn thành.
+
+2. Đăng Ký Tài Khoản Nhiều Bước
+Khi người dùng đăng ký tài khoản qua nhiều bước khác nhau, bạn có thể sử dụng thanh tiến trình để hiển thị mức độ hoàn thành của họ. Ví dụ:
+
+Bước 1: Nhập thông tin cá nhân
+Bước 2: Xác nhận email
+Bước 3: Thiết lập mật khẩu
+Bước 4: Hoàn thành
+Nếu người dùng đang ở bước 2, thanh tiến trình sẽ hiển thị 50% hoàn thành (vì có 4 bước tổng cộng).
+
+3. Form Nhiều Phần
+Trong các form dài được chia thành nhiều phần để dễ sử dụng hơn, bạn có thể sử dụng thanh tiến trình để hiển thị số phần đã hoàn thành.
+
+Ví dụ: Form có 5 phần và người dùng đang ở phần thứ 4.
+
+4. Quản lý Nhiệm vụ Dạng Danh Sách
+Nếu bạn có một danh sách nhiệm vụ mà người dùng cần hoàn thành, bạn có thể sử dụng thanh tiến trình để hiển thị số nhiệm vụ đã hoàn thành. Ví dụ:
+
+Tổng số nhiệm vụ: 7
+Nhiệm vụ đã hoàn thành: 4

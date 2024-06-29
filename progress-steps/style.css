@@ -1,101 +1,114 @@
+/* Import font Muli từ Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+/* Định nghĩa các biến màu sắc */
 :root {
-  --line-border-fill: #3498db;
-  --line-border-empty: #383838;
-
+  --line-border-fill: #3498db; /* Màu xanh biển cho viền và thanh tiến trình */
+  --line-border-empty: #383838; /* Màu đen cho viền trống */
 }
 
+/* Đặt tất cả các phần tử có tính chất box-sizing là border-box */
 * {
   box-sizing: border-box;
 }
 
+/* Đặt các thuộc tính cơ bản cho body */
 body {
-  background-color: #f1f1f1;
-  font-family: 'Muli', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  background-color: #f1f1f1; /* Màu nền xám nhạt */
+  font-family: 'Muli', sans-serif; /* Font chữ là Muli */
+  display: flex; /* Sử dụng Flexbox cho bố cục */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  height: 100vh; /* Chiều cao là 100% viewport height */
+  overflow: hidden; /* Ẩn overflow */
+  margin: 0; /* Loại bỏ margin mặc định */
 }
- /*tại sao phải center container nó mới căn nút */
+
+/* Căn giữa nội dung trong container */
 .container {
   text-align: center;
 }
 
+/* Định nghĩa bố cục cho thanh tiến trình */
 .progress-container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 30px;
-  max-width: 100%;
-  width: 350px;
+  display: flex; /* Sử dụng Flexbox cho bố cục */
+  justify-content: space-between; /* Chia đều khoảng cách giữa các phần tử */
+  position: relative; /* Định vị tương đối */
+  margin-bottom: 30px; /* Khoảng cách dưới là 30px */
+  max-width: 100%; /* Chiều rộng tối đa là 100% */
+  width: 350px; /* Chiều rộng cố định là 350px */
 }
-/*tạo 1 lớp giả là thanh màu đen cao 4px */
+
+/* Tạo lớp giả trước là thanh màu đen cao 4px */
 .progress-container::before {
-  content: '';
-  background-color: var(--line-border-empty);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  z-index: -1;
+  content: ''; /* Nội dung rỗng */
+  background-color: var(--line-border-empty); /* Màu nền là màu đen của viền trống */
+  position: absolute; /* Định vị tuyệt đối */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 0; /* Bắt đầu từ bên trái */
+  transform: translateY(-50%); /* Dịch chuyển để căn giữa theo chiều dọc */
+  height: 4px; /* Chiều cao là 4px */
+  width: 100%; /* Chiều rộng là 100% */
+  z-index: -1; /* Đặt phía sau các phần tử khác */
 }
-/*tạo lớp giả là thanh xanh biển cao 4px */
+
+/* Tạo lớp giả là thanh màu xanh biển cao 4px */
 .progress {
-  background-color: var(--line-border-fill);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
+  background-color: var(--line-border-fill); /* Màu nền là màu xanh biển của viền */
+  position: absolute; /* Định vị tuyệt đối */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  left: 0; /* Bắt đầu từ bên trái */
+  transform: translateY(-50%); /* Dịch chuyển để căn giữa theo chiều dọc */
+  height: 4px; /* Chiều cao là 4px */
+  width: 0%; /* Chiều rộng ban đầu là 0% */
+  z-index: -1; /* Đặt phía sau các phần tử khác */
+  transition: 0.4s ease; /* Hiệu ứng chuyển đổi mượt mà trong 0.4 giây */
 }
 
+/* Định nghĩa hình dạng và kiểu dáng cho các vòng tròn */
 .circle {
-  background-color: #f1f1f1;
-  color:#e2e2e2;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--line-border-empty);
-  transition: 1s ease;
+  background-color: #f1f1f1; /* Màu nền là xám nhạt */
+  color: #e2e2e2; /* Màu chữ là xám nhạt */
+  border-radius: 50%; /* Bo tròn thành hình tròn */
+  height: 30px; /* Chiều cao là 30px */
+  width: 30px; /* Chiều rộng là 30px */
+  display: flex; /* Sử dụng Flexbox cho bố cục */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  border: 3px solid var(--line-border-empty); /* Viền là 3px, màu đen của viền trống */
+  transition: 1s ease; /* Hiệu ứng chuyển đổi mượt mà trong 1 giây */
 }
 
+/* Định nghĩa kiểu dáng cho vòng tròn khi ở trạng thái active */
 .circle.active {
-  border-color: var(--line-border-fill);
+  border-color: var(--line-border-fill); /* Viền màu xanh biển khi active */
 }
 
+/* Định nghĩa kiểu dáng cho các nút */
 .btn {
-  background-color: var(--line-border-fill);
-  color: #fff;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: inherit;
-  padding: 8px 30px;
-  margin: 5px;
-  font-size: 14px;
+  background-color: var(--line-border-fill); /* Màu nền là màu xanh biển của viền */
+  color: #fff; /* Màu chữ là trắng */
+  border: 0; /* Không có viền */
+  border-radius: 6px; /* Bo tròn các góc */
+  cursor: pointer; /* Con trỏ chuột là pointer */
+  font-family: inherit; /* Sử dụng font chữ kế thừa */
+  padding: 8px 30px; /* Khoảng đệm: trên dưới 8px, trái phải 30px */
+  margin: 5px; /* Khoảng cách xung quanh là 5px */
+  font-size: 14px; /* Kích thước chữ là 14px */
 }
 
+/* Hiệu ứng khi nhấn nút */
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Giảm kích thước nút một chút khi nhấn */
 }
 
+/* Kiểu dáng khi nút được focus */
 .btn:focus {
-  outline: 0;
+  outline: 0; /* Không có viền focus */
 }
 
+/* Kiểu dáng khi nút bị vô hiệu hóa */
 .btn:disabled {
-  background-color: var(--line-border-empty);
-  cursor: not-allowed;
+  background-color: var(--line-border-empty); /* Màu nền là màu đen của viền trống */
+  cursor: not-allowed; /* Con trỏ chuột là không được phép */
 }
