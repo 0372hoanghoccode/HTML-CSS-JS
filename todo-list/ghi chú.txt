@@ -1,0 +1,38 @@
+Danh sách công việc (To-do list):
+
+Lưu trữ các mục công việc mà người dùng đã thêm vào danh sách, cùng với trạng thái hoàn thành của chúng. Điều này cho phép người dùng duy trì danh sách của mình ngay cả khi họ tải lại trang hoặc đóng và mở lại trình duyệt.
+Giỏ hàng mua sắm:
+
+Lưu trữ các sản phẩm mà người dùng đã thêm vào giỏ hàng khi họ mua sắm trực tuyến. Dữ liệu giỏ hàng sẽ được lưu trữ và duy trì ngay cả khi người dùng rời khỏi trang và quay lại sau.
+Lưu trữ trạng thái người dùng:
+
+Lưu trữ trạng thái đăng nhập của người dùng, giúp họ không phải đăng nhập lại mỗi khi tải lại trang. Tuy nhiên, không nên lưu trữ thông tin đăng nhập nhạy cảm trong localStorage.
+Cài đặt người dùng:
+
+Lưu trữ các cài đặt giao diện người dùng như chế độ tối (dark mode), ngôn ngữ, hoặc bố cục ưa thích của trang web.
+Trạng thái trò chơi:
+
+Lưu trữ trạng thái của các trò chơi trên web, giúp người dùng có thể tiếp tục chơi từ vị trí đã dừng lại mà không bị mất tiến trình.
+Form dữ liệu tạm thời:
+
+Lưu trữ dữ liệu nhập vào của các biểu mẫu để người dùng có thể khôi phục lại thông tin đã nhập nếu họ vô tình tải lại trang hoặc đóng trình duyệt.
+Ghi nhớ trạng thái mở rộng/thu gọn của các thành phần giao diện:
+
+Lưu trữ trạng thái mở rộng hoặc thu gọn của các phần tử giao diện như menu, bảng điều khiển, hoặc các phần thông tin trên trang web.
+Lưu trữ lịch sử tìm kiếm:
+
+Lưu trữ các từ khóa mà người dùng đã tìm kiếm trước đó để đề xuất các kết quả tìm kiếm tương tự hoặc để hiển thị lại lịch sử tìm kiếm.
+Ứng dụng đọc sách hoặc truyện:
+
+Lưu trữ vị trí đọc hiện tại của người dùng trong một cuốn sách hoặc truyện, giúp họ có thể tiếp tục đọc từ trang hoặc đoạn đã dừng lại.
+Ứng dụng học tập:
+
+Lưu trữ tiến trình học tập của người dùng, ví dụ như các bài học đã hoàn thành, điểm số, hoặc trạng thái hoàn thành của các bài kiểm tra.
+Các ứng dụng này tận dụng khả năng của localStorage để cung cấp trải nghiệm người dùng liền mạch và thuận tiện, ngay cả khi người dùng rời khỏi trang web và quay lại sau.
+
+nên sử dụng localStorage khi:
+- không lưu dữ liệu nhạy cảm
+-dữ liệu đơn giản
+-cần dùng lại sau khi tải lại trang
+-lưu dữ liệu tạm thời
+-không cần cơ sở dữ liệu

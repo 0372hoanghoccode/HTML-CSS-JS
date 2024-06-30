@@ -5,7 +5,23 @@ Percentage (%): Được sử dụng để xác định kích thước hoặc v�
 
 Viewport Width/Height (vw/vh): Được sử dụng để xác định kích thước dựa trên chiều rộng (vw) và chiều cao (vh) của cửa sổ trình duyệt. Ví dụ: width: 50vw;, height: 80vh;.
 
-REM và EM: REM (Root EM) và EM là đơn vị sử dụng cho kích thước phông chữ. REM được tính theo kích thước phông chữ của thẻ <html>, trong khi EM thường được tính theo kích thước phông chữ của phần tử cha gần nhất. Ví dụ: font-size: 1.2rem;, padding: 2em;.
+REM và EM: REM (Root EM) và EM là đơn vị sử dụng cho kích thước phông chữ. REM được tính theo kích thước phông chữ của thẻ <html>(nếu không css lại thì thường 16px = 1 rem), trong khi EM thường được tính theo kích thước phông chữ của phần tử cha gần nhất. Ví dụ: font-size: 1.2rem;, padding: 2em;.
+
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+.container {
+    font-size: 1.5rem; /* 1.5 * 16px = 24px */
+}
+
+.container p {
+    font-size: 1em; /* 1em = 24px vì kế thừa từ .container */
+}
+
+.container .small-text {
+    font-size: 0.75em; /* 0.75 * 24px = 18px */
+}
 
 2. Đơn vị màu sắc
 Hexadecimal (#RRGGBB): Mã màu sắc bao gồm 6 ký tự hex để xác định màu sắc dựa trên các giá trị Red (R), Green (G), và Blue (B). Ví dụ: color: #ff0000; (màu đỏ), background-color: #00ff00; (màu xanh lá cây).
@@ -25,3 +41,30 @@ Degrees (deg): Được sử dụng để xác định góc quay của các ph�
 Absolute URL: Đường dẫn đầy đủ tới một tài nguyên trên Internet, bao gồm cả tên miền và đường dẫn. Ví dụ: <img src="https://example.com/image.jpg">.
 
 Relative URL: Đường dẫn tới một tài nguyên dựa trên vị trí tương đối của tài nguyên hiện tại. Ví dụ: <img src="images/photo.jpg"> (nếu photo.jpg nằm trong thư mục images cùng cấp với tệp HTML).
+
+khi nào nên dùng đơn vị nào ?
+
+
+px (Pixel):
+
+Khi nên dùng: Đơn vị này thường được sử dụng để xác định kích thước cụ thể, cụ thể cho border, padding, margin, hay kích thước văn bản. Nó cũng thích hợp để xác định kích thước cố định mà không cần phụ thuộc vào các yếu tố bên ngoài như kích thước font hay kích thước cửa sổ trình duyệt.
+Ví dụ: Xác định border-width là 1px, font-size là 14px.
+vh (Viewport Height) và vw (Viewport Width):
+
+Khi nên dùng: Được sử dụng để xác định kích thước dựa trên chiều cao (vh) hoặc chiều rộng (vw) của viewport (không bao gồm thanh công cụ trình duyệt). Thường được sử dụng cho các thành phần có kích thước linh hoạt, ví dụ như một phần tử tràn toàn bộ chiều cao hoặc chiều rộng của màn hình.
+Ví dụ: Thiết lập một phần tử để chiếm 50% chiều cao (height: 50vh) của viewport.
+em và rem:
+
+em: Được tính dựa trên kích thước font của phần tử cha gần nhất. Sử dụng em thường khi muốn kích thước phụ thuộc vào kích thước font của phần tử cha.
+rem: Được tính dựa trên kích thước font của phần tử gốc (html). Thường được sử dụng để giữ kích thước nhất quán trên toàn bộ trang web, tránh hiệu ứng lũy tiến.
+Khi nên dùng: Sử dụng em và rem cho các kích thước font và kích thước các phần tử mà bạn muốn tuân thủ theo kích thước font cha hoặc kích thước font gốc.
+Ví dụ: Đặt font-size của một phần tử là 1.5em để nó có kích thước là 1.5 lần kích thước font của phần tử cha, hoặc font-size: 16px bằng 1rem nếu kích thước font gốc là 16px.
+% (Percent):
+
+Khi nên dùng: Sử dụng % để xác định kích thước dựa trên kích thước của phần tử cha. Đây là một cách để làm cho các phần tử có kích thước linh hoạt và phản ánh sự thay đổi của kích thước phần tử cha.
+Ví dụ: Thiết lập width của một phần tử là 50% để nó chiếm 50% chiều rộng của phần tử cha.
+Lựa chọn đơn vị phù hợp
+Khi lựa chọn đơn vị, cân nhắc các yếu tố sau:
+Độ linh hoạt: Các đơn vị như %, vh, vw, em thường linh hoạt hơn px và rem trong việc điều chỉnh kích thước theo các yếu tố khác như kích thước màn hình hay kích thước font.
+Nhất quán: Sử dụng rem để duy trì kích thước nhất quán trên toàn bộ trang web, đặc biệt là trong thiết kế phản ứng.
+Cụ thể: Sử dụng px khi cần xác định kích thước cụ thể mà không cần phụ thuộc vào các yếu tố bên ngoài.
