@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box; /* Đảm bảo kích thước phần tử tính cả border và padding */
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2); /* Đặt nền gradient từ màu #7d5fff đến #7158e2 */
+  font-family: 'Roboto', sans-serif; /* Sử dụng font chữ Roboto */
+  display: flex; /* Hiển thị theo kiểu flexbox */
+  align-items: center; /* Căn chỉnh các phần tử vào giữa theo chiều dọc */
+  justify-content: center; /* Căn chỉnh các phần tử vào giữa theo chiều ngang */
+  height: 100vh; /* Chiều cao của body là 100% chiều cao của viewport */
+  overflow: hidden; /* Ẩn phần nội dung vượt ra ngoài */
+  margin: 0; /* Xóa margin mặc định */
+}
+
+.search {
+  position: relative; /* Đặt phần tử search là relative */
+  height: 50px; /* Đặt chiều cao của search là 50px */
+}
+
+.search .input {
+  background-color: #fff; /* Đặt màu nền của input là trắng */
+  border: 0; /* Xóa viền của input */
+  font-size: 18px; /* Đặt kích thước chữ là 18px */
+  padding: 15px; /* Đặt khoảng cách trong của input là 15px */
+  height: 50px; /* Đặt chiều cao của input là 50px */
+  width: 50px; /* Đặt chiều rộng của input là 50px */
+  transition: width 0.3s ease; /* Hiệu ứng chuyển đổi width trong 0.3s dễ dàng */
+}
+
+.btn {
+  background-color: #fff; /* Đặt màu nền của button là trắng */
+  border: 0; /* Xóa viền của button */
+  cursor: pointer; /* Đổi con trỏ chuột thành hình bàn tay khi rê chuột vào */
+  font-size: 24px; /* Đặt kích thước chữ của button là 24px */
+  position: absolute; /* Đặt vị trí tuyệt đối cho button */
+  top: 0; /* Đặt vị trí top của button là 0 */
+  left: 0; /* Đặt vị trí left của button là 0 */
+  height: 50px; /* Đặt chiều cao của button là 50px */
+  width: 50px; /* Đặt chiều rộng của button là 50px */
+  transition: transform 0.3s ease; /* Hiệu ứng chuyển đổi transform trong 0.3s dễ dàng */
+}
+
+.btn:focus,
+.input:focus {
+  outline: none; /* Xóa đường viền xung quanh khi focus vào button hoặc input */
+}
+
+.search.active .input {
+  width: 200px; /* Khi class active được thêm vào search, mở rộng input lên 200px */
+}
+
+.search.active .btn {
+  transform: translateX(198px); /* Khi class active được thêm vào search, di chuyển button sang phải 198px */
+}
