@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+  box-sizing: border-box; /* Đảm bảo kích thước phần tử tính cả border và padding */
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif; /* Sử dụng font chữ Ubuntu cho toàn bộ nội dung trong body */
+  display: flex; /* Hiển thị theo kiểu flexbox để căn chỉnh nội dung vào giữa trang */
+  align-items: center; /* Căn chỉnh các phần tử vào giữa theo chiều dọc */
+  justify-content: center; /* Căn chỉnh các phần tử vào giữa theo chiều ngang */
+  height: 100vh; /* Chiều cao của body bằng 100% chiều cao của viewport, để nội dung căn giữa màn hình */
+  overflow: hidden; /* Ẩn phần nội dung vượt ra ngoài khung của body */
+  margin: 0; /* Xóa margin mặc định của body */
+}
+
+.bg {
+  background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80') 
+  /* Đặt hình nền từ URL chỉ định */
+    no-repeat /* Không lặp lại hình ảnh */
+    center center /* Căn giữa hình ảnh theo chiều ngang và dọc */
+    / cover; /* Phủ kín phần tử với hình ảnh */
+  
+  position: absolute; /* Đặt phần tử ở vị trí tuyệt đối */
+  top: -30px; /* Dịch chuyển phần tử lên trên 30px so với vị trí mặc định */
+  left: -30px; /* Dịch chuyển phần tử sang trái 30px so với vị trí mặc định */
+  width: calc(100vw + 60px); /* Đặt chiều rộng của phần tử bằng 100% viewport width cộng thêm 60px */
+  height: calc(100vh + 60px); /* Đặt chiều cao của phần tử bằng 100% viewport height cộng thêm 60px */
+  z-index: -1; /* Đặt z-index để phần tử nằm dưới cùng */
+  filter: blur(0px); /* Đặt hiệu ứng mờ là 0px, không mờ */
+}
+
+
+.loading-text {
+  font-size: 50px; /* Đặt kích thước chữ của phần tử loading-text là 50px */
+  color: #fff; /* Đặt màu chữ của phần tử loading-text là trắng */
+}
