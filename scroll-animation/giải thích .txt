@@ -1,0 +1,8 @@
+Vị trí kích hoạt (trigger point): Giá trị của triggerBottom xác định một điểm nằm ở 4/5 chiều cao từ đỉnh của cửa sổ trình duyệt. Khi người dùng cuộn trang và vị trí phía trên (top) của một hộp (box) vượt qua điểm này, hộp sẽ được hiển thị (thêm lớp 'show').
+Ví dụ
+Giả sử chiều cao của cửa sổ trình duyệt là 1000 pixel:
+
+window.innerHeight / 5 = 1000 / 5 = 200 pixel
+window.innerHeight / 5 * 4 = 200 * 4 = 800 pixel
+Vậy triggerBottom sẽ có giá trị là 800 pixel.
+ Điều này có nghĩa là khi người dùng cuộn trang và vị trí phía trên của hộp (box) nằm dưới 800 pixel từ đỉnh của cửa sổ trình duyệt, hộp sẽ được hiển thị
