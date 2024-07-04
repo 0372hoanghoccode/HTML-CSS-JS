@@ -20,28 +20,41 @@ h1 {
 }
 
 .box {
+  /* Đặt màu nền cho các hộp */
   background-color: steelblue;
+  /* Đặt màu chữ là màu trắng */
   color: #fff;
+  /* Sử dụng Flexbox để căn giữa nội dung theo cả chiều ngang và chiều dọc */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Đặt chiều rộng của hộp là 400px */
   width: 400px;
+  /* Đặt chiều cao của hộp là 200px */
   height: 200px;
+  /* Thêm khoảng cách giữa các hộp */
   margin: 10px;
+  /* Bo tròn góc của hộp */
   border-radius: 10px;
+  /* Thêm hiệu ứng đổ bóng cho hộp */
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  /* Đặt vị trí ban đầu của các hộp là dịch chuyển ra ngoài khung nhìn theo chiều ngang */
   transform: translateX(400%);
+  /* Thêm hiệu ứng chuyển động mượt mà cho thuộc tính transform */
   transition: transform 0.4s ease;
 }
 
 .box:nth-of-type(even) {
+  /* Đặt vị trí ban đầu của các hộp chẵn là dịch chuyển ra ngoài khung nhìn theo chiều ngang nhưng về phía ngược lại */
   transform: translateX(-400%);
 }
 
 .box.show {
+  /* Khi hộp có lớp 'show', đặt vị trí của nó trở về ban đầu */
   transform: translateX(0);
 }
 
 .box h2 {
+  /* Đặt kích thước chữ cho các tiêu đề trong hộp */
   font-size: 45px;
 }
