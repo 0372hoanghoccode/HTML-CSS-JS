@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Nhập font 'Roboto' từ Google Fonts với các trọng số 400 và 700, hiển thị nhanh hơn. */
 
 :root {
   --left-bg-color: rgba(87, 84, 236, 0.7);
@@ -9,10 +10,12 @@
   --other-width: 25%;
   --speed: 1000ms;
 }
+/* Định nghĩa các biến CSS cho màu nền, màu hover của nút, chiều rộng khi hover và tốc độ chuyển đổi. */
 
 * {
   box-sizing: border-box;
 }
+/* Đặt tất cả phần tử sử dụng kiểu hộp `border-box` để bao gồm padding và border trong width và height. */
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -20,6 +23,7 @@ body {
   overflow: hidden;
   margin: 0;
 }
+/* Đặt font chữ cho body là 'Roboto', chiều cao 100% viewport height, ẩn thanh cuộn và bỏ margin. */
 
 h1 {
   font-size: 4rem;
@@ -30,6 +34,7 @@ h1 {
   transform: translateX(-50%);
   white-space: nowrap;
 }
+/* Định dạng cho tiêu đề h1 với kích thước chữ 4rem, màu trắng, đặt vị trí tuyệt đối, căn giữa ngang và khoảng cách từ trên 20%. */
 
 .btn {
   position: absolute;
@@ -48,16 +53,19 @@ h1 {
   width: 15rem;
   padding: 1.5rem;
 }
+/* Định dạng cho nút bấm với vị trí tuyệt đối, căn giữa ngang, không có gạch chân, màu chữ trắng, viền trắng 0.2rem, chữ in hoa, rộng 15rem và padding 1.5rem. */
 
 .split.left .btn:hover {
   background-color: var(--left-btn-hover-color);
   border-color: var(--left-btn-hover-color);
 }
+/* Khi hover vào nút trong phần .split.left, đổi màu nền và viền theo biến --left-btn-hover-color. */
 
 .split.right .btn:hover {
   background-color: var(--right-btn-hover-color);
   border-color: var(--right-btn-hover-color);
 }
+/* Khi hover vào nút trong phần .split.right, đổi màu nền và viền theo biến --right-btn-hover-color. */
 
 .container {
   position: relative;
@@ -65,6 +73,7 @@ h1 {
   height: 100%;
   background: #333;
 }
+/* Định dạng cho container với vị trí tương đối, chiều rộng và chiều cao 100%, màu nền xám (#333). */
 
 .split {
   position: absolute;
@@ -72,6 +81,7 @@ h1 {
   height: 100%;
   overflow: hidden;
 }
+/* Định dạng cho các phần tử .split với vị trí tuyệt đối, chiều rộng 50%, chiều cao 100%, ẩn phần tràn. */
 
 .split.left {
   left: 0;
@@ -79,6 +89,7 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* Định dạng cho phần .split.left với vị trí bên trái, nền là hình ảnh 'ps.jpg', không lặp lại và bao phủ toàn bộ. */
 
 .split.left::before {
   content: '';
@@ -87,6 +98,7 @@ h1 {
   height: 100%;
   background-color: var(--left-bg-color);
 }
+/* Thêm một lớp phủ màu với màu từ biến --left-bg-color cho phần .split.left. */
 
 .split.right {
   right: 0;
@@ -94,6 +106,7 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* Định dạng cho phần .split.right với vị trí bên phải, nền là hình ảnh 'xbox.jpg', không lặp lại và bao phủ toàn bộ. */
 
 .split.right::before {
   content: '';
@@ -102,6 +115,7 @@ h1 {
   height: 100%;
   background-color: var(--right-bg-color);
 }
+/* Thêm một lớp phủ màu với màu từ biến --right-bg-color cho phần .split.right. */
 
 .split.right,
 .split.left,
@@ -109,22 +123,27 @@ h1 {
 .split.left::before {
   transition: all var(--speed) ease-in-out;
 }
+/* Đặt hiệu ứng chuyển đổi cho các phần tử .split và lớp phủ màu với thời gian và hiệu ứng từ biến --speed. */
 
 .hover-left .left {
   width: var(--hover-width);
 }
+/* Khi có lớp .hover-left, đặt chiều rộng của phần .left theo giá trị từ biến --hover-width. */
 
 .hover-left .right {
   width: var(--other-width);
 }
+/* Khi có lớp .hover-left, đặt chiều rộng của phần .right theo giá trị từ biến --other-width. */
 
 .hover-right .right {
   width: var(--hover-width);
 }
+/* Khi có lớp .hover-right, đặt chiều rộng của phần .right theo giá trị từ biến --hover-width. */
 
 .hover-right .left {
   width: var(--other-width);
 }
+/* Khi có lớp .hover-right, đặt chiều rộng của phần .left theo giá trị từ biến --other-width. */
 
 @media (max-width: 800px) {
   h1 {
@@ -137,3 +156,4 @@ h1 {
     width: 12rem;
   }
 }
+/* Khi kích thước màn hình nhỏ hơn 800px, giảm kích thước chữ của h1 xuống 2rem và đặt vị trí từ trên là 30%. Giảm padding và chiều rộng của nút. */
