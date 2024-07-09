@@ -32,4 +32,3 @@ right.addEventListener('mouseleave', () => container.classList.remove('hover-rig
 - Thêm một sự kiện lắng nghe 'mouseleave' vào phần tử 'right'.
 - Khi con trỏ chuột rời khỏi phần tử 'right', gỡ bỏ class 'hover-right' khỏi phần tử 'container'.
 */
-//hi
