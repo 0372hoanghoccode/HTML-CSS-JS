@@ -1,103 +1,159 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/* Nhập font 'Muli' từ Google Fonts và đặt tùy chọn hiển thị 'swap'. */
 
 * {
   box-sizing: border-box;
 }
+/* Áp dụng thuộc tính box-sizing: border-box cho tất cả các phần tử. */
 
 body {
   background-color: steelblue;
+  /* Đặt màu nền cho phần thân trang là màu xanh thép. */
   color: #fff;
+  /* Đặt màu chữ là màu trắng. */
   font-family: 'Muli', sans-serif;
+  /* Sử dụng font 'Muli', sans-serif cho phần thân trang. */
   display: flex;
+  /* Đặt thuộc tính hiển thị là flex. */
   flex-direction: column;
+  /* Sắp xếp các phần tử con theo chiều dọc. */
   align-items: center;
+  /* Canh giữa các phần tử con theo chiều ngang. */
   justify-content: center;
+  /* Canh giữa các phần tử con theo chiều dọc. */
   height: 100vh;
+  /* Đặt chiều cao của phần thân trang là 100% chiều cao của cửa sổ trình duyệt. */
   overflow: hidden;
+  /* Ẩn bất kỳ nội dung nào tràn ra ngoài. */
   margin: 0;
+  /* Đặt lề của phần thân trang là 0. */
 }
 
 .container {
   background-color: rgba(0, 0, 0, 0.4);
+  /* Đặt màu nền của khối chứa là màu đen với độ trong suốt 0.4. */
   padding: 20px 40px;
+  /* Đặt phần đệm (padding) của khối chứa. */
   border-radius: 5px;
+  /* Bo tròn các góc của khối chứa. */
 }
 
 .container h1 {
   text-align: center;
+  /* Canh giữa văn bản trong tiêu đề h1. */
   margin-bottom: 30px;
+  /* Đặt lề dưới của tiêu đề h1. */
 }
 
 .container a {
   text-decoration: none;
+  /* Loại bỏ gạch chân của liên kết. */
   color: lightblue;
+  /* Đặt màu chữ của liên kết là màu xanh nhạt. */
 }
 
 .btn {
   cursor: pointer;
+  /* Đặt con trỏ chuột là pointer khi di chuột qua nút. */
   display: inline-block;
+  /* Đặt nút hiển thị như một khối nội tuyến. */
   width: 100%;
+  /* Đặt chiều rộng của nút là 100%. */
   background: lightblue;
+  /* Đặt màu nền của nút là màu xanh nhạt. */
   padding: 15px;
+  /* Đặt phần đệm (padding) của nút. */
   font-family: inherit;
+  /* Sử dụng font của phần tử cha. */
   font-size: 16px;
+  /* Đặt kích thước font chữ của nút. */
   border: 0;
+  /* Loại bỏ đường viền của nút. */
   border-radius: 5px;
+  /* Bo tròn các góc của nút. */
 }
 
 .btn:focus {
   outline: 0;
+  /* Loại bỏ viền ngoài của nút khi nhận được tiêu điểm. */
 }
 
 .btn:active {
   transform: scale(0.98);
+  /* Thu nhỏ nút một chút khi nhấn vào (hiệu ứng nhấn). */
 }
 
 .text {
   margin-top: 30px;
+  /* Đặt lề trên của phần tử text. */
 }
 
 .form-control {
   position: relative;
+  /* Đặt vị trí của khối điều khiển là tương đối. */
   margin: 20px 0 40px;
+  /* Đặt lề trên và dưới của khối điều khiển. */
   width: 300px;
+  /* Đặt chiều rộng của khối điều khiển. */
 }
 
 .form-control input {
   background-color: transparent;
+  /* Đặt nền của ô nhập liệu là trong suốt. */
   border: 0;
+  /* Loại bỏ đường viền của ô nhập liệu. */
   border-bottom: 2px #fff solid;
+  /* Đặt đường viền dưới của ô nhập liệu là màu trắng và dày 2px. */
   display: block;
+  /* Đặt ô nhập liệu hiển thị như một khối. */
   width: 100%;
+  /* Đặt chiều rộng của ô nhập liệu là 100%. */
   padding: 15px 0;
+  /* Đặt phần đệm trên và dưới của ô nhập liệu. */
   font-size: 18px;
+  /* Đặt kích thước font chữ của ô nhập liệu. */
   color: #fff;
+  /* Đặt màu chữ của ô nhập liệu là màu trắng. */
   position: relative;
+  /* Đặt vị trí của ô nhập liệu là tương đối. */
   z-index: 100;
+  /* Đặt chỉ số z-index của ô nhập liệu. */
 }
 
 .form-control input:focus,
 .form-control input:valid {
   outline: 0;
+  /* Loại bỏ viền ngoài khi ô nhập liệu nhận được tiêu điểm hoặc hợp lệ. */
   border-bottom-color: lightblue;
+  /* Đổi màu đường viền dưới của ô nhập liệu thành màu xanh nhạt khi có tiêu điểm hoặc hợp lệ. */
 }
 
 .form-control label {
   position: absolute;
+  /* Đặt vị trí của nhãn là tuyệt đối. */
   top: 15px;
+  /* Đặt vị trí của nhãn cách trên 15px. */
   left: 0;
+  /* Đặt vị trí của nhãn cách trái 0. */
   pointer-events: none;
+  /* Vô hiệu hóa sự kiện chuột cho nhãn. */
 }
 
 .form-control label span {
   display: inline-block;
+  /* Đặt span hiển thị như một khối nội tuyến. */
   font-size: 18px;
+  /* Đặt kích thước font chữ cho span. */
   min-width: 5px;
+  /* Đặt chiều rộng tối thiểu cho span. */
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Đặt hiệu ứng chuyển đổi cho span với thời gian 0.3s và hàm bezier. */
 }
 
 .form-control input:focus + label span,
 .form-control input:valid + label span {
   color: lightblue;
+  /* Đổi màu chữ của span thành màu xanh nhạt khi ô nhập liệu có tiêu điểm hoặc hợp lệ. */
   transform: translateY(-30px);
+  /* Di chuyển span lên trên 30px khi ô nhập liệu có tiêu điểm hoặc hợp lệ. */
 }
