@@ -1,140 +1,160 @@
+/* Import font từ Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Manrope:wght@200;400&display=swap");
 
+/* Thiết lập các định dạng mặc định */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; /* Đảm bảo các phần tử đúng kích thước */
 }
 
+/* Thiết lập cho body */
 body {
-  font-family: "Manrope", sans-serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: #698474;
-  padding: 2rem;
-  position: relative;
-  transition: background-color 0.3s ease;
+  font-family: "Manrope", sans-serif; /* Sử dụng font Manrope nếu không tải được Dancing Script */
+  color: white; /* Màu chữ trắng */
+  display: flex; /* Hiển thị flexbox */
+  flex-direction: column; /* Dọc theo trục chính */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  width: 100vw; /* Chiều rộng 100% của viewport */
+  min-height: 100vh; /* Chiều cao tối thiểu 100% của viewport */
+  background-color: #698474; /* Màu nền */
+  padding: 2rem; /* Padding xung quanh */
+  margin: 0; /* Margin */
+  position: relative; /* Vị trí tương đối */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
 }
 
+/* Thiết lập cho phần nội dung chính */
 main {
-  max-width: 500px;
-  margin: 3rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  max-width: 500px; /* Chiều rộng tối đa */
+  margin: 3rem auto; /* Căn giữa và margin */
+  display: flex; /* Hiển thị flexbox */
+  flex-direction: column; /* Dọc theo trục chính */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc */
 }
 
+/* Thiết lập cho tiêu đề chính */
 main h1 {
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  position: absolute;
-  top: 4em;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 3rem;
+  font-size: 14px; /* Kích thước font */
+  font-weight: 400; /* Độ dày font */
+  text-align: center; /* Căn giữa */
+  text-transform: uppercase; /* Chuyển đổi thành chữ hoa */
+  letter-spacing: 3px; /* Khoảng cách giữa các chữ cái */
+  position: absolute; /* Vị trí tuyệt đối */
+  top: 4em; /* Cách top 4em */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translateX(-50%); /* Dịch chuyển -50% chiều ngang */
+  margin-bottom: 3rem; /* Margin dưới */
 }
 
+/* Thiết lập cho container chứa trích dẫn */
 #quoteContainer {
-  position: relative;
-  margin-top: 6rem;
-  transition: opacity 0.4s ease;
+  position: relative; /* Vị trí tương đối */
+  margin-top: 6rem; /* Cách top 6rem */
+  transition: opacity 0.4s ease; /* Hiệu ứng chuyển đổi độ mờ */
 }
 
+/* Pseudo-element trước container chứa trích dẫn */
 #quoteContainer::before {
-  content: "“";
-  position: absolute;
-  top: -9rem;
-  left: -3rem;
-  font-size: 20rem;
-  opacity: 0.25;
+  content: "“"; /* Nội dung là dấu ngoặc kép */
+  position: absolute; /* Vị trí tuyệt đối */
+  top: -9rem; /* Cách top -9rem */
+  left: -3rem; /* Cách left -3rem */
+  font-size: 20rem; /* Kích thước font */
+  opacity: 0.25; /* Độ mờ */
 }
 
+/* Thiết lập cho trích dẫn */
 #quote {
-  font-size: 3rem;
-  line-height: 4.2rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  font-family: "Dancing Script", cursive;
+  font-size: 3rem; /* Kích thước font */
+  line-height: 4.2rem; /* Chiều cao dòng */
+  margin-bottom: 3rem; /* Margin dưới */
+  text-align: center; /* Căn giữa */
+  font-family: "Dancing Script", cursive; /* Sử dụng font Dancing Script */
 }
 
+/* Thiết lập cho tác giả */
 #author {
-  font-size: 1.5rem;
-  font-weight: 200;
-  text-align: center;
-  margin-bottom: 3rem;
+  font-size: 1.5rem; /* Kích thước font */
+  font-weight: 200; /* Độ dày font */
+  text-align: center; /* Căn giữa */
+  margin-bottom: 3rem; /* Margin dưới */
 }
 
+/* Thiết lập cho nút */
 #btn {
-  font-size: 1.75rem;
-  color: white;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  border: 0;
-  opacity: 0.75;
-  margin-bottom: 2rem;
+  font-size: 1.75rem; /* Kích thước font */
+  color: white; /* Màu chữ trắng */
+  background-color: transparent; /* Nền trong suốt */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi */
+  border: 0; /* Không có viền */
+  opacity: 0.75; /* Độ mờ */
+  margin-bottom: 2rem; /* Margin dưới */
 }
 
+/* Hiệu ứng hover cho nút */
 #btn:hover {
-  opacity: 1;
-  transform: scale(1.05);
+  opacity: 1; /* Độ mờ 1 */
+  transform: scale(1.05); /* Phóng to 105% */
 }
 
+/* Trạng thái disabled cho nút */
 #btn:disabled,
 #btn:disabled:hover {
-  opacity: 0;
+  opacity: 0; /* Độ mờ 0 */
 }
 
+/* Loại bỏ focus khi click vào nút */
 #btn:focus {
-  outline: 0;
+  outline: 0; /* Không có viền focus */
 }
 
+/* Hiệu ứng active khi click vào nút */
 #btn:active {
-  transform: scale(0.98);
+  transform: scale(0.98); /* Phóng nhỏ 98% */
 }
 
+/* Thiết lập cho footer */
 footer {
-  position: absolute;
-  bottom: 0;
+  position: absolute; /* Vị trí tuyệt đối */
+  bottom: 0; /* Cách bottom 0 */
 }
 
+/* Thiết lập cho nội dung footer */
 footer .content {
-  font-size: 14px;
-  margin: 2rem auto;
+  font-size: 14px; /* Kích thước font */
+  margin:0 auto; /* Margin */
 }
 
+/* Thiết lập cho các liên kết */
 a,
 a:visited,
 a:active {
-  color: white;
-  text-decoration: none;
+  color: white; /* Màu chữ trắng */
+  text-decoration: none; /* Không gạch chân */
 }
 
+/* Media query cho các thiết bị có màn hình nhỏ hơn 420px */
 @media (max-width: 420px) {
   main h1 {
-    top: 3rem;
+    top: 3rem; /* Cách top 3rem */
   }
 
+  /* Điều chỉnh pseudo-element trước container chứa trích dẫn */
   #quoteContainer::before {
-    top: -9rem;
-    left: -1.5rem;
+    top: -9rem; /* Cách top -9rem */
+    left: -1.5rem; /* Cách left -1.5rem */
   }
 
+  /* Điều chỉnh cho trích dẫn */
   #quote {
-    font-size: 2rem;
-    line-height: 3.2rem;
-    margin-bottom: 2rem;
+    font-size: 2rem; /* Kích thước font */
+    line-height: 3.2rem; /* Chiều cao dòng */
+    margin-bottom: 2rem; /* Margin dưới */
   }
 
+  /* Điều chỉnh cho tác giả */
   #author {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Kích thước font */
   }
 }
