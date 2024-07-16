@@ -1,107 +1,144 @@
+/* Import font từ Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+/* Thiết lập mặc định cho tất cả các phần tử */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Bao gồm padding và border trong kích thước phần tử */
 }
 
+/* Thiết lập cho phần thân trang */
 body {
-  font-family: 'Muli', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Muli', sans-serif; /* Sử dụng font 'Muli' */
+  background-color: #f0f0f0; /* Màu nền xám nhạt */
 }
 
+/* Thiết lập cho tiêu đề cấp 1 */
 h1 {
-  margin: 50px 0 30px;
-  text-align: center;
+  margin: 50px 0 30px; /* Khoảng cách trên 50px, dưới 30px */
+  text-align: center; /* Canh giữa văn bản */
 }
 
+/* Thiết lập cho container của FAQ */
 .faq-container {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 600px; /* Chiều rộng tối đa là 600px */
+  margin: 0 auto; /* Canh giữa container */
 }
 
+/* Thiết lập cho mỗi mục FAQ */
 .faq {
-  background-color: transparent;
-  border: 1px solid #9fa4a8;
-  border-radius: 10px;
-  margin: 20px 0;
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s ease;
+  background-color: transparent; /* Nền trong suốt */
+  border: 1px solid #9fa4a8; /* Viền xám nhạt */
+  border-radius: 10px; /* Bo tròn góc 10px */
+  margin: 20px 0; /* Khoảng cách trên và dưới 20px */
+  padding: 30px; /* Khoảng cách bên trong 30px */
+  position: relative; /* Định vị tương đối */
+  overflow: hidden; /* Ẩn phần dư thừa */
+  transition: 0.3s ease; /* Hiệu ứng chuyển đổi trong 0.3 giây */
 }
 
+/* Thiết lập khi mục FAQ đang ở trạng thái active */
 .faq.active {
-  background-color: #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Nền trắng */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
 }
 
+/* Biểu tượng hiện lên khi FAQ ở trạng thái active */
 .faq.active::before,
 .faq.active::after {
-  content: '\f075';
-  font-family: 'Font Awesome 5 Free';
-  color: #2ecc71;
-  font-size: 7rem;
-  position: absolute;
-  opacity: 0.2;
-  top: 20px;
-  left: 20px;
-  z-index: 0;
+  content: '\f075'; /* Biểu tượng từ Font Awesome */
+  font-family: 'Font Awesome 5 Free'; /* Sử dụng font Font Awesome */
+  color: #2ecc71; /* Màu xanh lá */
+  font-size: 7rem; /* Kích thước chữ 7rem */
+  position: absolute; /* Định vị tuyệt đối */
+  opacity: 0.2; /* Độ mờ 20% */
+  top: 20px; /* Vị trí cách trên 20px */
+  left: 20px; /* Vị trí cách trái 20px */
+  z-index: 0; /* Z-index thấp nhất */
 }
 
+/* Thiết lập màu sắc và vị trí biểu tượng khác */
 .faq.active::before {
-  color: #3498db;
-  top: -10px;
-  left: -30px;
-  transform: rotateY(180deg);
+  color: #3498db; /* Màu xanh dương */
+  top: -10px; /* Vị trí cách trên -10px */
+  left: -30px; /* Vị trí cách trái -30px */
+  transform: rotateY(180deg); /* Xoay biểu tượng theo trục Y */
 }
 
+/* Thiết lập cho tiêu đề FAQ */
 .faq-title {
-  margin: 0 35px 0 0;
+  margin: 0 35px 0 0; /* Khoảng cách phải 35px */
 }
 
+/* Thiết lập cho nội dung FAQ */
 .faq-text {
-  display: none;
-  margin: 30px 0 0;
+  display: none; /* Ẩn nội dung */
+  margin: 30px 0 0; /* Khoảng cách trên 30px */
 }
 
+/* Hiển thị nội dung FAQ khi ở trạng thái active */
 .faq.active .faq-text {
-  display: block;
+  display: block; /* Hiển thị nội dung */
 }
 
+/* Thiết lập cho nút toggle của FAQ */
 .faq-toggle {
-  background-color: transparent;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  padding: 0;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  height: 30px;
-  width: 30px;
+  background-color: transparent; /* Nền trong suốt */
+  border: 0; /* Không viền */
+  border-radius: 50%; /* Bo tròn nút */
+  cursor: pointer; /* Con trỏ chuột khi hover */
+  display: flex; /* Thiết lập flexbox */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  font-size: 16px; /* Kích thước chữ 16px */
+  padding: 0; /* Không khoảng cách bên trong */
+  position: absolute; /* Định vị tuyệt đối */
+  top: 30px; /* Vị trí cách trên 30px */
+  right: 30px; /* Vị trí cách phải 30px */
+  height: 30px; /* Chiều cao 30px */
+  width: 30px; /* Chiều rộng 30px */
 }
 
+/* Thiết lập khi nút toggle được focus */
 .faq-toggle:focus {
-  outline: 0;
+  outline: 0; /* Loại bỏ viền focus */
 }
 
+/* Ẩn biểu tượng x khi không ở trạng thái active */
 .faq-toggle .fa-times {
-  display: none;
+  display: none; /* Ẩn biểu tượng x */
 }
 
+/* Hiển thị biểu tượng x khi ở trạng thái active */
 .faq.active .faq-toggle .fa-times {
-  color: #fff;
-  display: block;
+  color: #fff; /* Màu trắng */
+  display: block; /* Hiển thị biểu tượng x */
 }
 
+/* Ẩn biểu tượng mũi tên xuống khi ở trạng thái active */
 .faq.active .faq-toggle .fa-chevron-down {
-  display: none;
+  display: none; /* Ẩn biểu tượng mũi tên xuống */
 }
 
+/* Thiết lập cho nút toggle khi ở trạng thái active */
 .faq.active .faq-toggle {
-  background-color: #9fa4a8;
+  background-color: #9fa4a8; /* Màu nền xám nhạt */
+}
+
+/* Thiết lập cho phần footer */
+footer {
+  text-align: center; /* Canh giữa nội dung */
+  padding: 10px; /* Khoảng cách bên trong 10px */
+}
+
+/* Thiết lập cho đoạn văn trong footer */
+footer p {
+  background: #1d2671; /* Màu nền xanh dương */
+  background-clip: text; /* Sử dụng nền cho chữ */
+  -webkit-background-clip: text; /* Hỗ trợ cho trình duyệt WebKit */
+  -webkit-text-fill-color: transparent; /* Đặt màu chữ là trong suốt */
+}
+
+/* Thiết lập khi hover trên liên kết */
+a:hover {
+  text-decoration: underline; /* Gạch chân khi hover */
 }
