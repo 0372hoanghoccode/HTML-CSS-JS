@@ -1,40 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
+/* Định nghĩa các biến màu sắc để sử dụng trong CSS */
 :root {
   --border-color: #144fc6;
   --fill-color: #6ab3f8;
 }
 
+/* Đặt box-sizing cho tất cả các phần tử để border và padding không ảnh hưởng đến kích thước phần tử */
 * {
   box-sizing: border-box;
 }
 
+/* Thiết lập kiểu chữ và căn chỉnh cho body */
 body {
   background-color: #b5dcfb;
-  color: #fff;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
+/* Thiết lập kiểu chữ và màu sắc cho tiêu đề h1 */
 h1 {
   margin: 10px 0 0;
   color: #144fc6;
 }
 
+/* Thiết lập kiểu chữ và màu sắc cho tiêu đề h3 */
 h3 {
   font-weight: 400;
   margin: 10px 0;
   color: #144fc6;
 }
 
+/* Thiết lập kiểu dáng cho cốc lớn */
 .cup {
   background-color: #fff;
   border: 4px solid var(--border-color);
   color: var(--border-color);
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 20px 20px;
   height: 330px;
   width: 150px;
   margin: 30px 0;
@@ -43,6 +47,7 @@ h3 {
   overflow: hidden;
 }
 
+/* Thiết lập kiểu dáng cho các cốc nhỏ */
 .cup.cup-small {
   height: 95px;
   width: 50px;
@@ -57,19 +62,22 @@ h3 {
   transition: 0.3s ease;
 }
 
+/* Thiết lập kiểu dáng cho các cốc nhỏ khi đầy */
 .cup.cup-small.full {
   background-color: var(--fill-color);
   color: #fff;
 }
 
+/* Thiết lập kiểu dáng cho container chứa các cốc nhỏ */
 .cups {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 280px;
+  width: 300px;
 }
 
+/* Thiết lập kiểu dáng cho phần còn lại của cốc lớn */
 .remained {
   display: flex;
   flex-direction: column;
@@ -80,15 +88,18 @@ h3 {
   transition: 0.3s ease;
 }
 
+/* Thiết lập kiểu chữ và kích thước cho văn bản trong phần còn lại */
 .remained span {
   font-size: 20px;
   font-weight: bold;
 }
 
+/* Thiết lập kiểu chữ và kích thước nhỏ hơn cho văn bản phụ trong phần còn lại */
 .remained small {
   font-size: 12px;
 }
 
+/* Thiết lập kiểu dáng cho phần trăm trong cốc lớn */
 .percentage {
   background-color: var(--fill-color);
   display: flex;
@@ -100,17 +111,27 @@ h3 {
   transition: 0.3s ease;
 }
 
+/* Thiết lập kiểu dáng cho văn bản */
 .text {
   text-align: center;
   margin: 0 0 5px;
   color: #002879;
 }
 
+/* Thiết lập kiểu dáng cho footer */
 footer {
- padding-top: 20px;;
+ padding-top: 20px;
 }
 
+/* Thiết lập kiểu chữ và màu sắc cho văn bản trong footer */
 footer p {
   font-size: 14px;
   color: black;
+}
+
+/* Thiết lập kiểu dáng cho màn hình nhỏ hơn 320px */
+@media screen and (max-width: 320px) {
+  .cups {
+    width: 280px;
+  }
 }
