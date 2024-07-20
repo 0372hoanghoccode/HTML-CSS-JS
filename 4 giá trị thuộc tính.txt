@@ -1,0 +1,47 @@
+Các thuộc tính theo thứ tự chiều kim đồng hồ
+
+margin: top right bottom left;
+padding
+
+padding: top right bottom left;
+border-width
+
+border-width: top right bottom left;
+border-color
+
+border-color: top right bottom left;
+border-style
+
+border-style: top right bottom left;
+border-radius
+Khi sử dụng bốn giá trị, thứ tự có thể hơi khác, vì nó không hoàn toàn là chiều kim đồng hồ. Nó tuân theo thứ tự: trên-trái, trên-phải, dưới-phải, dưới-trái.
+
+border-radius: top-left top-right bottom-right bottom-left;
+Các thuộc tính không theo thứ tự chiều kim đồng hồ
+background-position
+Khi sử dụng hai giá trị, nó không tuân theo chiều kim đồng hồ mà chỉ định vị trí theo trục ngang và trục dọc.
+
+background-position: horizontal vertical;
+grid-template-areas
+Đây không phải là một thuộc tính liên quan đến định vị theo hướng, mà định nghĩa các vùng lưới trong CSS Grid Layout.
+
+grid-template-areas:
+  "header header header"
+  "sidebar content content"
+  "footer footer footer";
+Các quy tắc về việc sử dụng một đến bốn giá trị
+Một số thuộc tính cho phép sử dụng từ một đến bốn giá trị với các ý nghĩa cụ thể:
+
+Một giá trị: Áp dụng cho tất cả các hướng.
+
+padding: 10px; /* top, right, bottom, left đều là 10px */
+Hai giá trị: Giá trị đầu cho trên và dưới, giá trị sau cho trái và phải.
+
+padding: 10px 20px; /* top và bottom là 10px, left và right là 20px */
+Ba giá trị: Giá trị đầu cho trên, giá trị thứ hai cho trái và phải, giá trị thứ ba cho dưới.
+
+padding: 10px 20px 30px; /* top là 10px, left và right là 20px, bottom là 30px */
+Bốn giá trị: Theo thứ tự chiều kim đồng hồ (trừ border-radius).
+
+padding: 10px 20px 30px 40px; /* top là 10px, right là 20px, bottom là 30px, left là 40px */
+Do đó, hầu hết các thuộc tính liên quan đến việc định nghĩa khoảng cách, viền, hoặc vị trí đều tuân theo thứ tự chiều kim đồng hồ, với một số ngoại lệ như border-radius và các thuộc tính không liên quan đến định vị các hướng cụ thể như background-position.
