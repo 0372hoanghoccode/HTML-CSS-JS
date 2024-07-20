@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Theme Clock</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
-    <!-- Inspired by this dribbble shot https://dribbble.com/shots/5958443-Alarm-clock -->
-
-    <button class="toggle">Dark mode</button>
+    <button class="toggle"><i class="fa fa-moon"></i></button>
 
     <div class="clock-container">
       <div class="clock">
@@ -17,11 +19,34 @@
         <div class="needle minute"></div>
         <div class="needle second"></div>
         <div class="center-point"></div>
+        <span style="--i: 1"><b>1</b></span>
+        <span style="--i: 2"><b>2</b></span>
+        <span style="--i: 3"><b>3</b></span>
+        <span style="--i: 4"><b>4</b></span>
+        <span style="--i: 5"><b>5</b></span>
+        <span style="--i: 6"><b>6</b></span>
+        <span style="--i: 7"><b>7</b></span>
+        <span style="--i: 8"><b>8</b></span>
+        <span style="--i: 9"><b>9</b></span>
+        <span style="--i: 10"><b>10</b></span>
+        <span style="--i: 11"><b>11</b></span>
+        <span style="--i: 12"><b>12</b></span>
       </div>
 
       <div class="time"></div>
       <div class="date"></div>
+   
+    <footer>
+      <div class="content">
+        <p>
+          Made with <i class="fa-solid fa-heart"></i> by
+          <a ></a
+          > Hoàng
+        </p>
+      </div>
+    </footer>
     </div>
+
 
     <script src="script.js"></script>
   </body>

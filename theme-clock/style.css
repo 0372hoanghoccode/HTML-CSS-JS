@@ -1,136 +1,200 @@
-@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap'); /* Nhúng font 'Heebo' từ Google Fonts */
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Đặt thuộc tính box-sizing cho tất cả phần tử, bao gồm cả margin và padding trong kích thước phần tử */
 }
 
 :root {
-  --primary-color: #000;
-  --secondary-color: #fff;
+  --primary-color: #000; /* Định nghĩa biến CSS cho màu chính (màu đen) */
+  --secondary-color: #fff; /* Định nghĩa biến CSS cho màu phụ (màu trắng) */
 }
 
 html {
-  transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in; /* Thiết lập chuyển đổi cho tất cả các thuộc tính của phần tử html với thời gian 0.5 giây */
 }
 
 html.dark {
-  --primary-color: #fff;
-  --secondary-color: #333;
+  --primary-color: #fff; /* Thay đổi màu chính thành màu trắng khi ở chế độ tối */
+  --secondary-color: #333; /* Thay đổi màu phụ thành màu xám khi ở chế độ tối */
 }
 
 html.dark {
-  background-color: #111;
-  color: var(--primary-color);
+  background-color: #111; /* Đặt màu nền thành màu xám đậm khi ở chế độ tối */
+  color: var(--primary-color); /* Đặt màu chữ theo màu chính */
 }
 
 body {
-  font-family: 'Heebo', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  font-family: 'Heebo', sans-serif; /* Sử dụng font 'Heebo' cho toàn bộ nội dung */
+  display: flex; /* Sử dụng flexbox để bố trí nội dung */
+  align-items: center; /* Canh giữa theo trục dọc */
+  justify-content: center; /* Canh giữa theo trục ngang */
+  height: 100vh; /* Chiều cao của body bằng 100% chiều cao viewport */
+  overflow: hidden; /* Ẩn các phần tràn ra ngoài */
+  margin: 0; /* Xóa bỏ margin mặc định */
 }
 
 .toggle {
-  cursor: pointer;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  border: 0;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 100px;
+  cursor: pointer; /* Hiển thị con trỏ chuột khi hover */
+  background-color: var(--primary-color); /* Đặt màu nền theo màu chính */
+  color: var(--secondary-color); /* Đặt màu chữ theo màu phụ */
+  border: 0; /* Xóa bỏ đường viền */
+  border-radius: 50%; /* Bo tròn phần tử */
+  padding: 5px 9px; /* Thêm khoảng cách bên trong */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 100px; /* Cách phía trên 100px */
 }
 
 .toggle:focus {
-  outline: none;
+  outline: none; /* Xóa bỏ viền khi phần tử được focus */
 }
 
 .clock-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* Sử dụng flexbox để bố trí nội dung */
+  flex-direction: column; /* Xếp chồng phần tử theo trục dọc */
+  justify-content: space-between; /* Chia đều khoảng cách giữa các phần tử */
+  align-items: center; /* Canh giữa theo trục ngang */
 }
 
 .clock {
-  position: relative;
-  width: 200px;
-  height: 200px;
+  position: relative; /* Đặt vị trí tương đối */
+  width: 300px; /* Chiều rộng 300px */
+  height: 300px; /* Chiều cao 300px */
+  border-radius: 50%; /* Bo tròn phần tử */
+  border: 2px solid var(--primary-color); /* Đặt viền 2px theo màu chính */
+  margin: 10px; /* Thêm khoảng cách bên ngoài */
+}
+
+.clock span {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  transform: rotate(calc(30deg * var(--i))); /* Xoay phần tử theo giá trị i (số thứ tự) */
+  inset: 2px; /* Đặt khoảng cách đều bên trong 2px */
+  text-align: center; /* Căn giữa văn bản */
+}
+
+.clock span b {
+  transform: rotate(calc(-30deg * var(--i))); /* Xoay ngược lại phần tử b để giữ nguyên hướng văn bản */
+  display: inline-block; /* Hiển thị dưới dạng khối nội tuyến */
+  font-size: 20px; /* Kích thước chữ 20px */
 }
 
 .needle {
-  background-color: var(--primary-color);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 65px;
-  width: 3px;
-  transform-origin: bottom center;
-  transition: all 0.5s ease-in linear;
+  background-color: var(--primary-color); /* Đặt màu nền theo màu chính */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 50%; /* Căn giữa theo trục dọc */
+  left: 50%; /* Căn giữa theo trục ngang */
+  height: 65px; /* Chiều cao 65px */
+  width: 3px; /* Chiều rộng 3px */
+  transform-origin: bottom center; /* Đặt điểm gốc để xoay là phía dưới chính giữa */
+  transition: all 0.5s ease-in linear; /* Thiết lập chuyển đổi với thời gian 0.5 giây */
 }
 
 .needle.hour {
-  transform: translate(-50%, -100%) rotate(0deg);
+  transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim giờ */
+  height: 100px; /* Chiều cao 100px */
 }
 
 .needle.minute {
-  transform: translate(-50%, -100%) rotate(0deg);
-  height: 100px;
+  transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim phút */
+  height: 120px; /* Chiều cao 120px */
 }
 
 .needle.second {
-  transform: translate(-50%, -100%) rotate(0deg);
-  height: 100px;
-  background-color: #e74c3c;
+  transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim giây */
+  height: 140px; /* Chiều cao 140px */
+  background-color: #e74c3c; /* Đặt màu nền màu đỏ */
 }
 
 .center-point {
-  background-color: #e74c3c;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+  background-color: #e74c3c; /* Đặt màu nền màu đỏ */
+  width: 10px; /* Chiều rộng 10px */
+  height: 10px; /* Chiều cao 10px */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 50%; /* Căn giữa theo trục dọc */
+  left: 50%; /* Căn giữa theo trục ngang */
+  transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa */
+  border-radius: 50%; /* Bo tròn phần tử */
 }
 
 .center-point::after {
-  content: '';
-  background-color: var(--primary-color);
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+  content: ''; /* Nội dung rỗng */
+  background-color: var(--primary-color); /* Đặt màu nền theo màu chính */
+  width: 5px; /* Chiều rộng 5px */
+  height: 5px; /* Chiều cao 5px */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 50%; /* Căn giữa theo trục dọc */
+  left: 50%; /* Căn giữa theo trục ngang */
+  transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa */
+  border-radius: 50%; /* Bo tròn phần tử */
 }
 
 .time {
-  font-size: 60px;
+  font-size: 60px; /* Kích thước chữ 60px */
 }
 
 .date {
-  color: #aaa;
-  font-size: 14px;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
+  color: #aaa; /* Đặt màu chữ xám nhạt */
+  font-size: 14px; /* Kích thước chữ 14px */
+  letter-spacing: 0.3px; /* Khoảng cách giữa các chữ cái 0.3px */
+  text-transform: uppercase; /* Chuyển đổi chữ thường thành chữ in hoa */
 }
 
 .date .circle {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  border-radius: 50%;
-  height: 18px;
-  width: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 18px;
-  transition: all 0.5s ease-in;
-  font-size: 12px;
+  background-color: var(--primary-color); /* Đặt màu nền theo màu chính */
+  color: var(--secondary-color); /* Đặt màu chữ theo màu phụ */
+  border-radius: 50%; /* Bo tròn phần tử */
+  height: 18px; /* Chiều cao 18px */
+  width: 18px; /* Chiều rộng 18px */
+  display: inline-flex; /* Hiển thị dưới dạng khối nội tuyến linh hoạt */
+  align-items: center; /* Căn giữa theo trục dọc */
+  justify-content: center; /* Căn giữa theo trục ngang */
+  line-height: 18px; /* Chiều cao dòng 18px */
+  transition: all 0.5s ease-in; /* Thiết lập chuyển đổi với thời gian 0.5 giây */
+  font-size: 12px; /* Kích thước chữ 12px */
+}
+
+footer {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  bottom: 10px; /* Cách phía dưới 10px */
+  color: #aaa; /* Đặt màu chữ xám nhạt */
+  font-size: 14px; /* Kích thước chữ 14px */
+  letter-spacing: 0.3px; /* Khoảng cách giữa các chữ cái 0.3px */
+  text-transform: uppercase; /* Chuyển đổi chữ thường thành chữ in hoa */
+}
+
+@media screen and (max-width: 340px) {
+  .clock {
+    width: 200px; /* Giảm chiều rộng của đồng hồ xuống 200px trên màn hình nhỏ */
+    height: 200px; /* Giảm chiều cao của đồng hồ xuống 200px trên màn hình nhỏ */
+  }
+
+  .needle {
+    height: 50px; /* Giảm chiều cao của kim đồng hồ xuống 50px trên màn hình nhỏ */
+  }
+
+  .needle.hour {
+    height: 50px; /* Giảm chiều cao của kim giờ xuống 50px trên màn hình nhỏ */
+  }
+
+  .needle.minute {
+    height: 70px; /* Giảm chiều cao của kim phút xuống 70px trên màn hình nhỏ */
+  }
+
+  .needle.second {
+    height: 90px; /* Giảm chiều cao của kim giây xuống 90px trên màn hình nhỏ */
+  }
+
+  .time {
+    font-size: 40px; /* Giảm kích thước chữ của thời gian xuống 40px trên màn hình nhỏ */
+  }
+
+  .date {
+    font-size: 12px; /* Giảm kích thước chữ của ngày xuống 12px trên màn hình nhỏ */
+  }
+
+  .date .circle {
+    height: 14px; /* Giảm chiều cao của hình tròn ngày xuống 14px trên màn hình nhỏ */
+    width: 14px; /* Giảm chiều rộng của hình tròn ngày xuống 14px trên màn hình nhỏ */
+    line-height: 14px; /* Giảm chiều cao dòng của hình tròn ngày xuống 14px trên màn hình nhỏ */
+    font-size: 10px; /* Giảm kích thước chữ của hình tròn ngày xuống 10px trên màn hình nhỏ */
+  }
 }
