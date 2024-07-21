@@ -1,0 +1,89 @@
+/* Thiết lập box-sizing cho tất cả các phần tử */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(159, 215, 163); /* Màu nền cho body */
+  display: flex; /* Sử dụng Flexbox để canh giữa nội dung */
+  align-items: center; /* Canh giữa các mục theo chiều ngang */
+  justify-content: center; /* Canh giữa các mục theo chiều dọc */
+  height: 100vh; /* Chiều cao của body là 100% chiều cao của cửa sổ trình duyệt */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
+header {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 0; /* Vị trí cách trên cùng */
+  width: 100%; /* Chiều rộng 100% */
+  text-align: center; /* Canh giữa chữ */
+  padding: 10px 0; /* Khoảng cách trên và dưới */
+  color: #fff; /* Màu chữ trắng */
+}
+
+header h1 {
+  font-size: 24px; /* Kích thước chữ */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Phông chữ */
+  font-weight: 300; /* Độ đậm của chữ */
+  font-size: 40px; /* Kích thước chữ */
+  line-height: 42px; /* Chiều cao dòng */
+  letter-spacing: 4px; /* Khoảng cách giữa các chữ */
+  background: linear-gradient(to left, #f497b4 0%, #1e7194 100%); /* Hiệu ứng chuyển màu nền */
+  background-clip: text; /* Chỉ áp dụng màu nền cho chữ */
+  -webkit-background-clip: text; /* Chỉ áp dụng màu nền cho chữ trên webkit */
+  -webkit-text-fill-color: transparent; /* Chữ trong suốt trên webkit */
+}
+
+.empty {
+  height: 150px; /* Chiều cao của phần tử trống */
+  width: 150px; /* Chiều rộng của phần tử trống */
+  margin: 10px; /* Khoảng cách xung quanh */
+  border: solid 2px black; /* Viền đen dày 2px */
+  background: white; /* Màu nền trắng */
+  border-radius: 10px; /* Bo góc */
+}
+
+.fill {
+  background-image: url('https://source.unsplash.com/random/150x150'); /* Hình nền cho phần tử fill */
+  height: 145px; /* Chiều cao của phần tử fill */
+  width: 145px; /* Chiều rộng của phần tử fill */
+  cursor: pointer; /* Con trỏ chuột */
+}
+
+.hold {
+  border: solid 5px #ccc; /* Viền xám dày 5px */
+}
+
+.hovered {
+  background-color: #333; /* Màu nền khi hover */
+  border-color: white; /* Màu viền trắng khi hover */
+  border-style: dashed; /* Kiểu viền gạch ngang khi hover */
+}
+
+footer {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  bottom: 0; /* Vị trí cách dưới cùng */
+  width: 100%; /* Chiều rộng 100% */
+  text-align: center; /* Canh giữa chữ */
+  padding: 10px 0; /* Khoảng cách trên và dưới */
+  background: rgba(0, 0, 0, 0.5); /* Màu nền đen với độ trong suốt 50% */
+  color: #fff; /* Màu chữ trắng */
+}
+
+@media (max-width: 800px) {
+  body {
+   display: grid; /* Sử dụng Grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Cột có chiều rộng tối thiểu 150px và tối đa 1fr */
+    gap: 5px; /* Khoảng cách giữa các cột */
+  }
+  .empty {
+    height: 100px; /* Chiều cao của empty */
+    width: 100px; /* Chiều rộng của empty */
+  }
+  .fill {
+    height: 95px; /* Chiều cao của fill */
+    width: 95px; /* Chiều rộng của fill */
+  }
+
+}
