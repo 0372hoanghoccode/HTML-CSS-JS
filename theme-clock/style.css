@@ -91,17 +91,21 @@ body {
 .needle.hour {
   transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim giờ */
   height: 100px; /* Chiều cao 100px */
+  width: 4px; /* Chiều rộng 4px */
 }
 
 .needle.minute {
   transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim phút */
   height: 120px; /* Chiều cao 120px */
+  background-color: rgb(87, 50, 2);
+  width: 2px; /* Chiều rộng 2px */
 }
 
 .needle.second {
   transform: translate(-50%, -100%) rotate(0deg); /* Xoay kim giây */
   height: 140px; /* Chiều cao 140px */
   background-color: #e74c3c; /* Đặt màu nền màu đỏ */
+  width: 1px; /* Chiều rộng 1px */
 }
 
 .center-point {

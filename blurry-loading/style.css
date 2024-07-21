@@ -35,3 +35,13 @@ body {
   font-size: 50px; /* Đặt kích thước chữ của phần tử loading-text là 50px */
   color: #fff; /* Đặt màu chữ của phần tử loading-text là trắng */
 }
+
+footer{
+  position: absolute; /* Đặt phần tử ở vị trí tuyệt đối */
+  bottom: 0; /* Đặt phần tử ở phía dưới cùng của body */
+  width: 100%; /* Đặt chiều rộng của phần tử bằng 100% */
+  text-align: center; /* Căn chỉnh nội dung của phần tử vào giữa theo chiều ngang */
+  padding: 10px 0; /* Đặt padding 10px ở phía trên và dưới của phần tử */
+  background: rgba(0, 0, 0, 0.5); /* Đặt màu nền cho phần tử */
+  color: #fff; /* Đặt màu chữ cho phần tử là trắng */
+}

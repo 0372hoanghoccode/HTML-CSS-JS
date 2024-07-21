@@ -1,0 +1,94 @@
+/* Import phông chữ Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Thiết lập box-sizing và phông chữ toàn cục */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; /* Màu nền đen cho body */
+  font-family: 'Roboto', sans-serif; /* Thiết lập phông chữ cho body */
+  display: flex; /* Sử dụng Flexbox để canh giữa nội dung */
+  flex-direction: column; /* Sắp xếp các mục theo chiều dọc */
+  align-items: center; /* Canh giữa các mục theo chiều ngang */
+  justify-content: center; /* Canh giữa các mục theo chiều dọc */
+  height: 100vh; /* Chiều cao của body là 100% chiều cao của cửa sổ trình duyệt */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
+header {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 0; /* Vị trí cách trên cùng */
+  width: 100%; /* Chiều rộng 100% */
+  text-align: center; /* Canh giữa chữ */
+  padding: 10px 0; /* Khoảng cách trên và dưới */
+  color: #fff; /* Màu chữ trắng */
+}
+
+header h1 {
+  font-size: 24px; /* Kích thước chữ */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Phông chữ */
+  font-weight: 300; /* Độ đậm của chữ */
+  font-size: 40px; /* Kích thước chữ */
+  line-height: 42px; /* Chiều cao dòng */
+  letter-spacing: 4px; /* Khoảng cách giữa các chữ */
+  background: #451e94; /* Màu nền */
+  background: linear-gradient(to left, #c33764 0%, #451e94 100%); /* Hiệu ứng chuyển màu nền */
+  background-clip: text; /* Chỉ áp dụng màu nền cho chữ */
+  -webkit-background-clip: text; /* Chỉ áp dụng màu nền cho chữ trên webkit */
+  -webkit-text-fill-color: transparent; /* Chữ trong suốt trên webkit */
+}
+
+header h2 {
+  font-family: kalam; /* Phông chữ */
+  background: #451e94; /* Màu nền */
+  background: linear-gradient(to left, #c33764 0%, #ae94e2 100%); /* Hiệu ứng chuyển màu nền */
+  background-clip: text; /* Chỉ áp dụng màu nền cho chữ */
+  -webkit-background-clip: text; /* Chỉ áp dụng màu nền cho chữ trên webkit */
+  -webkit-text-fill-color: transparent; /* Chữ trong suốt trên webkit */
+}
+
+button {
+  color: #fff; /* Màu chữ trắng */
+  border: 1px purple solid; /* Viền màu tím */
+  font-size: 14px; /* Kích thước chữ */
+  text-transform: uppercase; /* Chuyển đổi chữ thường thành chữ hoa */
+  letter-spacing: 2px; /* Khoảng cách giữa các chữ */
+  padding: 20px 30px; /* Khoảng cách trong của nút */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+  margin: 10px 0; /* Khoảng cách trên và dưới của nút */
+  position: relative; /* Đặt vị trí tương đối */
+  border-radius: 7px; /* Bo góc */
+  background: linear-gradient(to left, #c33764 0%, #451e94 100%); /* Hiệu ứng chuyển màu nền */
+}
+
+button:focus {
+  outline: none; /* Loại bỏ đường viền khi focus */
+}
+
+button .circle {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  background-color: #fff; /* Màu nền trắng */
+  width: 100px; /* Chiều rộng */
+  height: 100px; /* Chiều cao */
+  border-radius: 50%; /* Bo tròn */
+  transform: translate(-50%, -50%) scale(0); /* Dịch chuyển và thu nhỏ */
+  animation: scale 0.5s ease-out; /* Hiệu ứng phóng to và mờ dần */
+}
+
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3); /* Phóng to */
+    opacity: 0; /* Mờ dần */
+  }
+}
+
+footer {
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  bottom: 0; /* Vị trí cách dưới cùng */
+  text-align: center; /* Canh giữa chữ */
+  padding: 10px 0; /* Khoảng cách trên và dưới */
+  color: #fff; /* Màu chữ trắng */
+}

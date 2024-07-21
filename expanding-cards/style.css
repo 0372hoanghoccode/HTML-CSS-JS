@@ -26,6 +26,12 @@ body {
   display: flex;
   /* Chiều rộng của container là 90% chiều rộng của viewport */
   width: 90vw;
+  /* Bo tròn góc của container */
+  border-radius: 50px;
+  /* Đặt màu nền cho container */
+  background: rgba(255, 255, 255, 0.1);
+  /* Đổ bóng cho container */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .panel {
@@ -49,12 +55,10 @@ body {
   position: relative;
   /* Hiệu ứng chuyển đổi khi thay đổi flex */
   transition: flex 0.5s ease-in;
-  /* Đổ bóng cho panel */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
 }
 
 .panel:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Đổ bóng khi di chuột qua */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Đổ bóng khi di chuột qua */
 }
 
 .panel h3 {
@@ -68,11 +72,15 @@ body {
   margin: 0;
   /* Ẩn tiêu đề ban đầu */
   opacity: 0;
+  /* Hiệu ứng chuyển đổi opacity */
+  transition: opacity 0.5s ease-in;
 }
 
 .panel.active {
   /* Panel này sẽ chiếm nhiều không gian hơn khi được kích hoạt */
   flex: 5;
+  /* Đổ bóng cho panel */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
 }
 
 .panel.active h3 {
@@ -80,6 +88,22 @@ body {
   opacity: 1;
   /* Hiệu ứng chuyển đổi opacity */
   transition: opacity 0.3s ease-in 0.4s;
+}
+
+footer{
+  /* Đặt phần tử ở vị trí tuyệt đối */
+  position: absolute;
+  /* Đặt phần tử ở phía dưới cùng của body */
+  bottom: 0;
+  /* Đặt chiều rộng của phần tử bằng 100% */
+  width: 100%;
+  /* Căn chỉnh nội dung của phần tử vào giữa theo chiều ngang */
+  text-align: center;
+  /* Đặt padding 10px ở phía trên và dưới của phần tử */
+  padding: 10px 0;
+  /* Đặt màu chữ cho phần tử là trắng */
+  color: #888;
+
 }
 
 @media (max-width: 480px) {

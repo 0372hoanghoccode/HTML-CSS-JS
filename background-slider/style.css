@@ -1,0 +1,145 @@
+/* Import phông chữ Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Thiết lập box-sizing và phông chữ toàn cục */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Thiết lập phông chữ cho body */
+  display: flex; /* Sử dụng Flexbox để canh giữa nội dung */
+  flex-direction: column; /* Sắp xếp các mục theo chiều dọc */
+  align-items: center; /* Canh giữa các mục theo chiều ngang */
+  justify-content: center; /* Canh giữa các mục theo chiều dọc */
+  height: 100vh; /* Chiều cao của body là 100% chiều cao của cửa sổ trình duyệt */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+  background-position: center; /* Vị trí hình nền ở giữa */
+  background-size: cover; /* Hình nền bao phủ toàn bộ background */
+  transition: 0.4s; /* Thời gian chuyển đổi cho các thay đổi */
+}
+
+body::before {
+  content: ''; /* Tạo một nội dung rỗng */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 0; /* Vị trí cách trên cùng 0 */
+  left: 0; /* Vị trí cách bên trái 0 */
+  width: 100%; /* Chiều rộng 100% */
+  height: 100vh; /* Chiều cao 100% của cửa sổ trình duyệt */
+  background-color: rgba(0, 0, 0, 0.4); /* Màu nền đen với độ trong suốt 40% */
+  z-index: -1; /* Đặt z-index để nội dung khác hiển thị trên */
+}
+
+.slider-container {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); /* Đổ bóng cho container */
+  height: 70vh; /* Chiều cao của container là 70% chiều cao của cửa sổ trình duyệt */
+  width: 70vw; /* Chiều rộng của container là 70% chiều rộng của cửa sổ trình duyệt */
+  position: relative; /* Đặt vị trí tương đối */
+  overflow: hidden; /* Ẩn phần nội dung tràn */
+}
+
+.slide {
+  opacity: 0; /* Đặt độ mờ ban đầu */
+  height: 100vh; /* Chiều cao của slide là 100% chiều cao của cửa sổ trình duyệt */
+  width: 100vw; /* Chiều rộng của slide là 100% chiều rộng của cửa sổ trình duyệt */
+  background-position: center; /* Vị trí hình nền ở giữa */
+  background-size: cover; /* Hình nền bao phủ toàn bộ background */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: -15vh; /* Vị trí cách trên cùng -15% chiều cao của cửa sổ trình duyệt */
+  left: -15vw; /* Vị trí cách bên trái -15% chiều rộng của cửa sổ trình duyệt */
+  transition: 0.8s ease; /* Thời gian chuyển đổi cho các thay đổi */
+  z-index: 1; /* Đặt z-index để các mục khác hiển thị trên */
+}
+
+.slide.active {
+  opacity: 1; /* Đặt độ mờ cho slide hiện tại */
+}
+
+.arrow {
+  position: fixed; /* Đặt vị trí cố định */
+  background-color: transparent; /* Nền trong suốt */
+  color: #888; /* Màu chữ */
+  padding: 10px; /* Khoảng cách trong của nút */
+  font-size: 20px; /* Kích thước chữ */
+  border: none; /* Không có viền */
+  top: 50%; /* Vị trí cách trên cùng 50% */
+  transform: translateY(-30%); /* Dịch chuyển vị trí theo trục Y */
+  cursor: pointer; /* Con trỏ chuột */
+  border-radius: 10%; /* Bo góc */
+  background-color: #555; /* Màu nền */
+}
+
+.arrow:hover {
+  background-color: rgba(214, 205, 205, 0.7); /* Màu nền khi hover */
+  color: #333; /* Màu chữ khi hover */
+}
+
+.arrow:focus {
+  outline: 0; /* Loại bỏ đường viền khi focus */
+}
+
+.left-arrow {
+  left: calc(15vw - 65px); /* Vị trí cách bên trái */
+}
+
+.right-arrow {
+  right: calc(15vw - 65px); /* Vị trí cách bên phải */
+}
+
+.dots {
+  color: white; /* Màu trắng */
+  z-index: 2; /* Đặt z-index để các mục khác hiển thị trên */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  width: 100%; /* Chiều rộng 100% */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  display: flex; /* Sử dụng Flexbox */
+  bottom: 0; /* Vị trí cách dưới cùng */
+  left: 0; /* Vị trí cách bên trái */
+}
+
+.dots li {
+  list-style: none; /* Không có ký hiệu danh sách */
+  margin: 0 10px 3px; /* Khoảng cách giữa các mục */
+  cursor: pointer; /* Con trỏ chuột */
+  height: 8px; /* Chiều cao */
+  width: 8px; /* Chiều rộng */
+  background-color: white; /* Màu nền trắng */
+  border-radius: 50%; /* Bo tròn */
+  transition: 0.5s ease; /* Thời gian chuyển đổi cho các thay đổi */
+}
+
+.dots li.active {
+  background-color: #b5edf6; /* Màu nền khi active */
+  width: 25px; /* Chiều rộng khi active */
+  border-radius: 5px; /* Bo góc khi active */
+}
+
+footer {
+  position: fixed; /* Đặt vị trí cố định */
+  bottom: 0; /* Vị trí cách dưới cùng */
+  left: 0; /* Vị trí cách bên trái */
+  width: 100%; /* Chiều rộng 100% */
+  color: #fff; /* Màu chữ trắng */
+  text-align: center; /* Canh giữa chữ */
+}
+
+@media (max-width: 588px) {
+  .slider-container {
+    height: 50vh; /* Chiều cao của container là 50% chiều cao của cửa sổ trình duyệt */
+    width: 50vw; /* Chiều rộng của container là 50% chiều rộng của cửa sổ trình duyệt */
+  }
+  .arrow {
+    font-size: 15px; /* Kích thước chữ */
+  }
+  .arrow.left-arrow {
+    left: calc(15vw - 50px); /* Vị trí cách bên trái */
+  }
+  .arrow.right-arrow {
+    right: calc(15vw - 50px); /* Vị trí cách bên phải */
+  }
+  .dots li {
+    height: 6px; /* Chiều cao */
+    width: 6px; /* Chiều rộng */
+  }
+}
