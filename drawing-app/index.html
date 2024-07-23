@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Drawing App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Drawing app</h1>
+    </header>
+    <canvas id="canvas" width="1200" height="500"></canvas>
+    <div class="toolbox">
+      <button id="decrease">-</button>
+      <span id="size">10</span>
+      <button id="increase">+</button>
+      <input type="color" id="color">
+      <input type="range" id="opacity" min="0" max="1" step="0.1" value="1">
+      <span>Opacity: <span id="opacity-value">1</span></span>
+      <select id="brush-style">
+        <option value="round">Round</option>
+        <option value="square">Square</option>
+      </select>
+      <button id="clear">X</button>
+    </div>
+    <footer>
+      <div class="content">
+        <p>Made with <i class="fa-solid fa-heart"></i> by Hoàng</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

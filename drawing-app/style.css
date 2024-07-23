@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Áp dụng box-sizing border-box cho tất cả các phần tử */
+* {
+  box-sizing: border-box;
+}
+
+/* Thiết lập kiểu cho toàn bộ trang */
+body {
+  background-color: #f5f5f5; /* Màu nền của trang */
+  font-family: 'Roboto', sans-serif; /* Font chữ */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Chiều cao 100% viewport */
+  margin: 0; /* Xóa margin mặc định */
+}
+
+/* Kiểu cho tiêu đề trong phần header */
+header h1 {
+  font-size: 24px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Font chữ khác cho tiêu đề */
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 42px;
+  letter-spacing: 4px; /* Khoảng cách giữa các chữ cái */
+  background: #451e94; /* Màu nền gradient */
+  background: linear-gradient(to left, #c33764 0%, #451e94 100%);
+  background-clip: text; /* Chèn gradient vào chữ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Làm chữ trong suốt để thấy gradient */
+}
+
+/* Kiểu cho canvas */
+canvas {
+  border: 1px solid #000; /* Đường viền của canvas */
+  border-radius: 3px; /* Bo góc */
+  width: 100%; /* Chiều rộng 100% container */
+  max-width: 1200px; /* Chiều rộng tối đa */
+  height: auto; /* Chiều cao tự động */
+  background-color: #fff; /* Màu nền trắng */
+}
+
+/* Kiểu cho hộp công cụ */
+.toolbox {
+  background-color: #ddd; /* Màu nền của hộp công cụ */
+  border: 1px solid #ccc; /* Đường viền của hộp công cụ */
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các phần tử nằm gọn trong nhiều dòng nếu cần */
+  justify-content: center; /* Căn giữa các phần tử */
+  width: 100%; /* Chiều rộng 100% container */
+  max-width: 1204px; /* Chiều rộng tối đa */
+  padding: 1rem; /* Padding bên trong hộp công cụ */
+  margin-top: 1rem; /* Khoảng cách phía trên */
+  border-radius: 5px; /* Bo góc hộp công cụ */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho hộp công cụ */
+}
+
+/* Kiểu cho các phần tử trong hộp công cụ */
+.toolbox > * {
+  background-color: #fff; /* Màu nền của các nút */
+  border: 1px solid #ccc; /* Đường viền của các nút */
+  display: inline-flex;/* Hiển thị theo chiều ngang */
+  align-items: center;/* Căn giữa theo chiều dọc */
+  justify-content: center;/* Căn giữa theo chiều ngang */
+  font-size: 1rem; /* Kích thước font chữ */
+  height: 40px; /* Chiều cao của các nút */
+  margin: 0.25rem; /* Khoảng cách giữa các nút */
+  padding: 0.25rem; /* Padding bên trong các nút */
+  cursor: pointer; /* Con trỏ khi hover */
+  border-radius: 5px; /* Bo góc các nút */
+}
+
+/* Kiểu cho các phần tử nhập dữ liệu */
+.toolbox input[type="color"],
+.toolbox input[type="range"],
+.toolbox select {
+  width: auto; /* Chiều rộng tự động */
+  font-size: 1rem; /* Kích thước font chữ */
+  margin: 0.25rem; /* Khoảng cách giữa các phần tử nhập dữ liệu */
+  padding: 0.25rem; /* Padding bên trong các phần tử nhập dữ liệu */
+  height: 40px; /* Chiều cao của các phần tử nhập dữ liệu */
+  border-radius: 5px; /* Bo góc các phần tử nhập dữ liệu */
+}
+
+/* Kiểu cho nút xóa (clear) để căn lề trái */
+.toolbox > *:last-child {
+  margin-left: auto;
+}
+
+/* Kiểu cho footer */
+footer {
+  width: 100%; /* Chiều rộng 100% container */
+  text-align: center; /* Căn giữa nội dung */
+  color: #e6adad; /* Màu chữ */
+  margin-top: 1rem; /* Khoảng cách phía trên */
+}
+
+/* Media query cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .toolbox > * {
+    width: 80%; /* Chiều rộng 80% container */
+    max-width: 300px; /* Chiều rộng tối đa */
+  }
+  
+  .toolbox input[type="color"],
+  .toolbox input[type="range"],
+  .toolbox select {
+    width: 80%; /* Chiều rộng 80% container */
+    max-width: 300px; /* Chiều rộng tối đa */
+  }
+}
