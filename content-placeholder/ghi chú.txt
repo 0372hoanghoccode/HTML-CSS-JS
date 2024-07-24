@@ -1,0 +1,8 @@
+
+&nbsp; là viết tắt của "non-breaking space" (khoảng trắng không ngắt). 
+Đây là một thực thể HTML được sử dụng để thêm một khoảng trắng vào văn bản mà không cho phép trình duyệt web tự động ngắt dòng tại vị trí đó.
+ Nó thường được sử dụng trong các tình huống sau:
+
+Giữ khoảng trắng liên tục: Để đảm bảo rằng các khoảng trắng liên tục không bị giảm đi, vì trong HTML, các khoảng trắng liên tiếp thường chỉ hiển thị
+dưới dạng một khoảng trắng duy nhất.
+Ngăn ngắt dòng: Để giữ các phần tử trên cùng một dòng, chẳng hạn như giữa các từ hoặc ký tự mà bạn không muốn bị tách ra khi hiển thị trên trình duyệt.

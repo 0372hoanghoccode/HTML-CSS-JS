@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Thiết lập box-sizing cho tất cả các phần tử */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f1; /* Màu nền của trang */
+  font-family: 'Roboto', sans-serif; /* Thiết lập font chữ mặc định cho trang */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Chiều cao toàn màn hình */
+  overflow: hidden;
+  margin: 0; /* Loại bỏ margin mặc định */
+}
+
+header h1 {
+  font-size: 24px; /* Cỡ chữ tiêu đề */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Thiết lập font chữ cho tiêu đề */
+  font-weight: 300; /* Độ đậm của chữ */
+  font-size: 40px; /* Cỡ chữ tiêu đề */
+  line-height: 42px; /* Chiều cao dòng */
+  letter-spacing: 4px; /* Khoảng cách giữa các chữ */
+  background: #451e94; /* Màu nền chữ (sẽ bị ẩn đi do background-clip) */
+  background-clip: text; /* Cắt nền theo hình chữ */
+  -webkit-background-clip: text; /* Hỗ trợ cho trình duyệt WebKit */
+  -webkit-text-fill-color: transparent; /* Làm chữ trong suốt để chỉ hiển thị nền */
+}
+
+img {
+  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của phần tử chứa */
+}
+
+.card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng cho thẻ */
+  border-radius: 10px; /* Bo góc cho thẻ */
+  overflow: hidden;
+  width: 400px; /* Chiều rộng của thẻ */
+}
+
+.card-header {
+  height: 200px; /* Chiều cao của phần đầu thẻ */
+}
+
+.card-header img {
+  object-fit: cover; /* Ảnh sẽ bao phủ toàn bộ diện tích phần đầu thẻ */
+  height: 100%;
+  width: 100%;
+}
+
+.card-content {
+  background-color: #fff; /* Màu nền của phần nội dung thẻ */
+  padding: 10px; /* Khoảng cách bên trong */
+}
+
+.card-title {
+  height: 20px; /* Chiều cao của tiêu đề thẻ */
+  margin: 0; /* Loại bỏ margin mặc định */
+}
+
+.card-excerpt {
+  color: #777; /* Màu chữ */
+  margin: 10px 0 20px; /* Khoảng cách trên và dưới */
+}
+
+.author {
+  display: flex; /* Hiển thị flex cho thông tin tác giả */
+}
+
+.profile-img {
+  border-radius: 50%; /* Bo tròn hình ảnh đại diện */
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column; /* Hiển thị thông tin tác giả theo cột */
+  justify-content: space-around; /* Căn đều khoảng cách giữa các mục */
+  margin-left: 10px; /* Khoảng cách bên trái */
+  width: 100px; /* Chiều rộng */
+}
+
+.author-info small {
+  color: #aaa; /* Màu chữ cho thông tin phụ */
+  margin-top: 5px; /* Khoảng cách phía trên */
+}
+
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 10%,
+    #f6f7f8 20%,
+    #f6f7f8 100%
+  ); /* Hiệu ứng nền chuyển động */
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite; /* Hiệu ứng chuyển động nền */
+}
+
+.animated-bg-text {
+  border-radius: 50px; /* Bo góc cho chữ */
+  margin: 0;
+  height: 10px;
+  width: 100%;
+}
+/* Hiệu ứng chuyển động nền */
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;/* Vị trí ban đầu của nền */
+  }
+
+  100% {
+    background-position: -150% 0;/* Vị trí cuối cùng của nền */
+  }
+}
+
+footer {
+  color: #777; /* Màu chữ của phần chân trang */
+  font-size: 18px; /* Cỡ chữ */
+  margin-top: 150px; /* Khoảng cách phía trên */
+  text-align: center; /* Căn giữa chữ */
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 24px; /* Cỡ chữ tiêu đề nhỏ hơn cho màn hình nhỏ */
+  }
+  .card {
+    width: 300px; /* Chiều rộng của thẻ nhỏ hơn cho màn hình nhỏ */
+    margin: 0 auto; /* Căn giữa thẻ */
+  }
+}
