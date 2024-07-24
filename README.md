@@ -50,3 +50,8 @@
 49	Todo List	
 50	Insect Catch Game	
 51	Simple Timer	
+| Tên         | Tuổi | Nghề nghiệp  |
+|-------------|------|--------------|
+| Nguyễn Văn A| 25   | Kỹ sư phần mềm|
+| Trần Thị B  | 30   | Giáo viên     |
+| Lê Văn C    | 22   | Sinh viên     |
