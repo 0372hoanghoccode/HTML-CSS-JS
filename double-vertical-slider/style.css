@@ -1,0 +1,112 @@
+/* Import font từ Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* Đặt mặc định cho tất cả các phần tử: không có khoảng cách margin và padding, và sử dụng box-sizing: border-box */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Thiết lập phong cách cho body, sử dụng font 'Open Sans' và chiều cao 100% của viewport */
+body {
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+}
+
+/* Container chính cho slider, chứa các slide trái và phải, và giới hạn chiều rộng/chiều cao */
+.slider-container {
+  position: relative; /* Định vị tương đối để các phần tử con có thể định vị tuyệt đối */
+  overflow: hidden; /* Ẩn các phần tử tràn khỏi khung */
+  width: 100vw; /* Chiều rộng 100% của viewport */
+  height: 100vh; /* Chiều cao 100% của viewport */
+}
+
+/* Phong cách cho slide bên trái */
+.left-slide {
+  height: 100%;
+  width: 35%; /* Chiếm 35% chiều rộng của container */
+  position: absolute; /* Định vị tuyệt đối để có thể điều chỉnh vị trí */
+  top: 0; /* Canh trên cùng */
+  left: 0; /* Canh bên trái */
+  transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển động khi transform */
+}
+
+/* Căn chỉnh nội dung trong slide bên trái */
+.left-slide > div {
+  height: 100%;
+  width: 100%;
+  display: flex; /* Sử dụng flexbox để căn chỉnh nội dung */
+  flex-direction: column; /* Căn chỉnh theo cột */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  color: #fff; /* Màu chữ trắng */
+}
+
+/* Phong cách cho tiêu đề trong slide bên trái */
+.left-slide h1 {
+  font-size: 40px; /* Kích thước chữ lớn */
+  margin-bottom: 10px; /* Khoảng cách phía dưới */
+  margin-top: -30px; /* Khoảng cách phía trên âm */
+}
+
+/* Phong cách cho slide bên phải */
+.right-slide {
+  height: 100%;
+  position: absolute; /* Định vị tuyệt đối */
+  top: 0; /* Canh trên cùng */
+  left: 35%; /* Canh từ bên trái, sau phần của slide trái */
+  width: 65%; /* Chiếm 65% chiều rộng của container */
+  transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển động khi transform */
+}
+
+/* Định dạng nội dung trong slide bên phải */
+.right-slide > div {
+  background-repeat: no-repeat; /* Không lặp lại hình nền */
+  background-size: cover; /* Đặt hình nền bao phủ toàn bộ khung */
+  background-position: center center; /* Căn giữa hình nền */
+  height: 100%;
+  width: 100%;
+}
+
+/* Phong cách cho các nút bấm */
+button {
+  background-color: #fff; /* Màu nền trắng */
+  border: none; /* Không có viền */
+  color: #aaa; /* Màu chữ xám nhạt */
+  cursor: pointer; /* Con trỏ chuột khi hover */
+  font-size: 16px; /* Kích thước chữ */
+  padding: 15px; /* Khoảng cách bên trong nút */
+}
+
+/* Phong cách nút bấm khi hover */
+button:hover {
+  color: #222; /* Màu chữ đậm hơn khi hover */
+}
+
+/* Phong cách khi nút bấm được chọn */
+button:focus {
+  outline: none; /* Không viền khi focus */
+}
+
+/* Định dạng cho các nút hành động trong slider */
+.slider-container .action-buttons button {
+  position: absolute; /* Định vị tuyệt đối */
+  left: 35%; /* Vị trí từ bên trái, ngang với phần đầu của slide phải */
+  top: 50%; /* Vị trí ở giữa theo chiều dọc */
+  z-index: 100; /* Đảm bảo các nút nằm trên cùng */
+}
+
+/* Phong cách cho nút bấm xuống */
+.slider-container .action-buttons .down-button {
+  transform: translateX(-100%); /* Dịch chuyển nút bấm ra khỏi khung */
+  border-top-left-radius: 5px; /* Bo góc trên trái */
+  border-bottom-left-radius: 5px; /* Bo góc dưới trái */
+}
+
+/* Phong cách cho nút bấm lên */
+.slider-container .action-buttons .up-button {
+  transform: translateY(-100%); /* Dịch chuyển nút bấm lên trên */
+  border-top-right-radius: 5px; /* Bo góc trên phải */
+  border-bottom-right-radius: 5px; /* Bo góc dưới phải */
+}
