@@ -1,100 +1,186 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-    body{
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #1C1D22;
+/* Import font Poppins từ Google Fonts */
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C1D22;
+    flex-direction: column;
+}
+/* Đặt font Poppins cho toàn bộ trang, loại bỏ margin, 
+đặt chiều cao tối thiểu là 100vh, và căn giữa nội dung theo trục ngang và dọc. */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+/* Đặt vị trí của header ở trên cùng, chiều rộng 100%, căn giữa nội dung và thêm đệm (padding) */
+
+header h3 {
+  color: #f0f0f0;
+  font-size: 24px;
+}
+
+
+button{
+    padding: 10px;
+}
+/* Thêm đệm (padding) cho các nút bấm (button) */
+
+.notifications{
+    position: fixed;
+    top: 30px;
+    right: 20px;
+}
+/* Đặt vị trí của phần thông báo (notifications) cố định ở góc trên phải của màn hình */
+
+.toast{
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    width: 400px;
+    display: grid;
+    border: 1px solid #b4bcb6;
+    grid-template-columns: 70px 1fr 70px;
+    border-radius: 5px;
+    --color: #0abf30;
+    background-image: 
+        linear-gradient(
+            to right, #0abf3055, #22242f 30%
+        ); 
+    animation: show 0.3s ease 1 forwards  
+}
+/* Tạo cấu trúc cho các thông báo (toast) với 3 cột: icon, nội dung, và hành động.
+Sử dụng biến CSS (--color) để điều chỉnh màu sắc, và hiệu ứng nền (background-image) 
+cho các thông báo. Thêm hiệu ứng chuyển động cho các thông báo khi xuất hiện. */
+
+.toast i{
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+/* Đặt màu của biểu tượng (icon) theo màu của thông báo và căn giữa nội dung. */
+
+.toast .title{
+    font-size: x-large;
+    font-weight: bold;
+}
+/* Đặt kích thước chữ và độ đậm cho tiêu đề của thông báo */
+
+.toast span, .toast i:nth-child(3){
+    color: #fff;
+    opacity: 0.6;
+}
+/* Đặt màu trắng và độ mờ cho văn bản và biểu tượng ở cuối */
+
+@keyframes show{
+    0%{
+        transform: translateX(100%);
     }
-    button{
-        padding: 10px;
+    40%{
+        transform: translateX(-5%);
     }
+    80%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-10%);
+    }
+}
+/* Hiệu ứng di chuyển thông báo từ phải vào, tạo cảm giác nhịp nhàng. */
+
+.toast::before{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color);
+    width: 100%;
+    height: 3px;
+    content: '';
+    box-shadow: 0 0 10px var(--color);
+    animation: timeOut 2s linear 1 forwards
+}
+/* Thêm thanh hiển thị tiến trình (progress bar) bên dưới thông báo, 
+được thực hiện bằng hiệu ứng animation. */
+
+@keyframes timeOut{
+    to{
+        width: 0;
+    }
+}
+/* Hiệu ứng làm giảm chiều rộng của progress bar, 
+biểu thị thời gian thông báo sẽ biến mất. */
+
+.toast.error{
+    --color: #f24d4c;
+    background-image: 
+        linear-gradient(
+            to right, #f24d4c55, #22242F 30%
+        );
+}
+/* Đặt màu cho thông báo lỗi (error) và thay đổi hiệu ứng nền */
+
+.toast.warning{
+    --color: #e9bd0c;
+    background-image: 
+        linear-gradient(
+            to right, #e9bd0c55, #22242F 30%
+        );
+}
+/* Đặt màu cho thông báo cảnh báo (warning) và thay đổi hiệu ứng nền */
+
+.toast.info{
+    --color: #3498db;
+    background-image: 
+        linear-gradient(
+            to right, #3498db55, #22242F 30%
+        );
+}
+/* Đặt màu cho thông báo thông tin (info) và thay đổi hiệu ứng nền */
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  gap: 10px;
+}
+/* Đặt vị trí footer ở dưới cùng trang, căn giữa và tạo khoảng cách giữa các phần tử. */
+
+footer p{
+    color: floralwhite;
+}
+/* Đặt màu chữ cho đoạn văn bản trong footer là floralwhite (trắng hoa). */
+
+footer a{
+    color: #3498db;
+    text-decoration: none;
+}
+/* Đặt màu xanh cho liên kết (link) trong footer và loại bỏ gạch chân. */
+
+footer a:hover{
+    text-decoration: underline;
+}
+/* Thêm gạch chân cho liên kết khi người dùng di chuột qua. */
+
+@media screen and (max-width: 768px){
     .notifications{
         position: fixed;
-        top: 30px;
-        right: 20px;
+        top: 10px;
+        right: 10px;
     }
     .toast{
-        position: relative;
-        padding: 10px;
-        color: #fff;
-        margin-bottom: 10px;
-        width: 400px;
-        display: grid;
-        grid-template-columns: 70px 1fr 70px;
-        border-radius: 5px;
-        --color: #0abf30;
-        background-image: 
-            linear-gradient(
-                to right, #0abf3055, #22242f 30%
-            ); 
-        animation: show 0.3s ease 1 forwards  
+        max-width: 300px;
+        max-height: 90%;
+        
     }
-    .toast i{
-        color: var(--color);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: x-large;
-    }
-    .toast .title{
-        font-size: x-large;
-        font-weight: bold;
-    }
-    .toast span, .toast i:nth-child(3){
-        color: #fff;
-        opacity: 0.6;
-    }
-    @keyframes show{
-        0%{
-            transform: translateX(100%);
-        }
-        40%{
-            transform: translateX(-5%);
-        }
-        80%{
-            transform: translateX(0%);
-        }
-        100%{
-            transform: translateX(-10%);
-        }
-    }
-    .toast::before{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: var(--color);
-        width: 100%;
-        height: 3px;
-        content: '';
-        box-shadow: 0 0 10px var(--color);
-        animation: timeOut 5s linear 1 forwards
-    }
-    @keyframes timeOut{
-        to{
-            width: 0;
-        }
-    }
-    .toast.error{
-        --color: #f24d4c;
-        background-image: 
-            linear-gradient(
-                to right, #f24d4c55, #22242F 30%
-            );
-    }
-    .toast.warning{
-        --color: #e9bd0c;
-        background-image: 
-            linear-gradient(
-                to right, #e9bd0c55, #22242F 30%
-            );
-    }
-    .toast.info{
-        --color: #3498db;
-        background-image: 
-            linear-gradient(
-                to right, #3498db55, #22242F 30%
-            );
-    }
+}
