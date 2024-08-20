@@ -5,6 +5,8 @@ const form = document.getElementById('form')
 const search = document.getElementById('search')
 
 async function getUser(username) {
+    showSpinner(); 
+
     try {
         const { data } = await axios(APIURL + username)
 
@@ -14,8 +16,19 @@ async function getUser(username) {
         if(err.response.status == 404) {
             createErrorCard('No profile with this username')
         }
+    } finally {
+        hideSpinner(); 
     }
 }
+
+function showSpinner() {
+    document.getElementById('spinner').style.display = 'block';
+}
+
+function hideSpinner() {
+    document.getElementById('spinner').style.display = 'none';
+}
+
 
 async function getRepos(username) {
     try {
@@ -80,7 +93,6 @@ function addReposToCard(repos) {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-
     const user = search.value
 
     if(user) {

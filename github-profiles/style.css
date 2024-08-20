@@ -17,6 +17,25 @@ body {
   margin: 0;
 }
 
+.site-header {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #4c2885;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
 .user-form {
   width: 100%;
   max-width: 700px;
@@ -99,6 +118,43 @@ body {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   display: inline-block;
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-top: 8px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.site-footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #4c2885;
+  box-shadow: 0 -5px 10px rgba(154, 160, 185, 0.05),
+    0 -15px 40px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 500px) {
