@@ -2,50 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
     <link rel="stylesheet" href="style.css" />
-    <title>Password Generator</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <title>Password Generator | JavaScript Project</title>
   </head>
   <body>
     <div class="container">
-      <h2>Password Generator</h2>
-      <div class="result-container">
-        <span id="result"></span>
-        <button class="btn" id="clipboard">
-          <i class="far fa-clipboard"></i>
-        </button>
-      </div>
-      <div class="settings">
-        <div class="setting">
-          <label>Password Length</label>
-          <input type="number" id="length" min="4" max="20" value="20">
-        </div>
-        <div class="setting">
-          <label>Include uppercase letters</label>
-          <input type="checkbox" id="uppercase" checked>
-        </div>
-        <div class="setting">
-          <label>Include lowercase letters</label>
-          <input type="checkbox" id="lowercase" checked>
-        </div>
-        <div class="setting">
-          <label>Include numbers</label>
-          <input type="checkbox" id="numbers" checked>
-        </div>
-        <div class="setting">
-          <label>Include symbols</label>
-          <input type="checkbox" id="symbols" checked>
-        </div>
+      <h1>Password Generator</h1>
+
+      <div class="inputBox">
+        <input type="text" class="passBox" id="passBox" disabled />
+        <span class="material-icons" id="copyIcon">content_copy</span>
       </div>
 
-      <button class="btn btn-large" id="generate">
+      <input type="range" min="1" max="30" value="8" id="inputSlider" />
+
+      <div class="row">
+        <p>Password Length</p>
+        <span id="sliderValue"></span>
+      </div>
+
+      <div class="row">
+        <label for="lowercase">Include Lowercase Letters (a-z)</label>
+        <input type="checkbox" name="lowercase" id="lowercase" checked/>
+      </div>
+
+      <div class="row">
+        <label for="uppercase">Include Uppercase Letters (A-Z)</label>
+        <input type="checkbox" name="uppercase" id="uppercase" checked/>
+      </div>
+
+      <div class="row">
+        <label for="numbers">Include Numbers (0-9)</label>
+        <input type="checkbox" name="numbers" id="numbers" checked/>
+      </div>
+
+      <div class="row">
+        <label for="symbols">Include Symbols (@-*)</label>
+        <input type="checkbox" name="symbols" id="symbols" checked/>
+      </div>
+
+      <button type="button" class="genBtn" id="genBtn">
         Generate Password
       </button>
     </div>
+
+    <footer class="footer">
+      <p>© 2024 by Hoàng. All rights reserved.</p>
+    </footer>    
+
     <script src="script.js"></script>
   </body>
 </html>

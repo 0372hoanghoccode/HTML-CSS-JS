@@ -1,72 +1,70 @@
-const resultEl = document.getElementById('result')
-const lengthEl = document.getElementById('length')
-const uppercaseEl = document.getElementById('uppercase')
-const lowercaseEl = document.getElementById('lowercase')
-const numbersEl = document.getElementById('numbers')
-const symbolsEl = document.getElementById('symbols')
-const generateEl = document.getElementById('generate')
-const clipboardEl = document.getElementById('clipboard')
+// Lấy các phần tử từ DOM
+const inputSlider = document.getElementById("inputSlider");
+const sliderValue = document.getElementById("sliderValue");
+const passBox = document.getElementById("passBox");
+const lowercase = document.getElementById("lowercase");
+const uppercase = document.getElementById("uppercase");
+const numbers = document.getElementById("numbers");
+const symbols = document.getElementById("symbols");
+const genBtn = document.getElementById("genBtn");
+const copyIcon = document.getElementById("copyIcon");
 
-const randomFunc = {
-    lower: getRandomLower,
-    upper: getRandomUpper,
-    number: getRandomNumber,
-    symbol: getRandomSymbol
-}
+// Cập nhật giá trị của thanh trượt
+sliderValue.textContent = inputSlider.value;
 
-clipboardEl.addEventListener('click', () => {
-    const password = resultEl.innerText;
-  if (!password) {
-    return;
-  }
-  navigator.clipboard.writeText(password);
-    alert('Password copied to clipboard!')
-})
+inputSlider.addEventListener('input', () => {
+    sliderValue.textContent = inputSlider.value;
+});
 
-generateEl.addEventListener('click', () => {
-    const length = +lengthEl.value
-    const hasLower = lowercaseEl.checked
-    const hasUpper = uppercaseEl.checked
-    const hasNumber = numbersEl.checked
-    const hasSymbol = symbolsEl.checked
+// Xử lý sự kiện nhấn nút tạo mật khẩu
+genBtn.addEventListener('click', () => {
+    passBox.value = generatePassword();
+});
 
-    resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length)
-})
+// Các ký tự cho mật khẩu
+const lowerChars = "abcdefghijklmnopqrstuvwxyz";
+const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const allNumbers = "0123456789";
+const allSymbols = "~!@#$%^&*";
 
-function generatePassword(lower, upper, number, symbol, length) {
-    let generatedPassword = ''
-    const typesCount = lower + upper + number + symbol
-    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0])
-    
-    if(typesCount === 0) {
-        return ''
+// Hàm tạo mật khẩu
+function generatePassword() {
+    let genPassword = "";
+    let allChars = "";
+
+    // Thêm các ký tự dựa trên lựa chọn của người dùng
+    allChars += lowercase.checked ? lowerChars : "";
+    allChars += uppercase.checked ? upperChars : "";
+    allChars += numbers.checked ? allNumbers : "";
+    allChars += symbols.checked ? allSymbols : "";
+
+    // Nếu không có ký tự nào được chọn, trả về chuỗi rỗng
+    if (allChars.length === 0) {
+        return "";
     }
 
-    for(let i = 0; i < length; i += typesCount) {
-        typesArr.forEach(type => {
-            const funcName = Object.keys(type)[0]
-            generatedPassword += randomFunc[funcName]()
-        })
+    // Sinh mật khẩu ngẫu nhiên
+    for (let i = 0; i < inputSlider.value; i++) {
+        genPassword += allChars.charAt(Math.floor(Math.random() * allChars.length));
     }
 
-    const finalPassword = generatedPassword.slice(0, length)
-
-    return finalPassword
+    return genPassword;
 }
 
-function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-}
-
-function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-}
-
-function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-}
-
-function getRandomSymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>/,.'
-    return symbols[Math.floor(Math.random() * symbols.length)]
-}
+// Sao chép mật khẩu vào clipboard và thay đổi biểu tượng
+copyIcon.addEventListener('click', () => {
+    if (passBox.value) {
+        navigator.clipboard.writeText(passBox.value)
+            .then(() => {
+                copyIcon.innerText = "check";
+                copyIcon.title = "Password Copied";
+                setTimeout(() => {
+                    copyIcon.innerText = "content_copy";
+                    copyIcon.title = "Copy to Clipboard";
+                }, 2000);
+            })
+            .catch(() => {
+                alert("Failed to copy password!");
+            });
+    }
+});
