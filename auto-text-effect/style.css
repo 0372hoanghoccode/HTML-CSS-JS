@@ -1,38 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 body {
-  background-color: darksalmon;
-  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  background: linear-gradient(135deg, #6d5bba, #8d58bf, #de67b8, #f29191);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header, footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1, footer p {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  flex: 1;
 }
 
-div {
-  position: absolute;
-  bottom: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  font-size: 18px;
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-input {
-  width: 50px;
-  padding: 5px;
-  font-size: 18px;
-  background-color: darksalmon;
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+
+#speed {
+  width: 70px;
+  padding: 10px;
   border: none;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
   text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-input:focus {
+#speed:focus {
   outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
 }

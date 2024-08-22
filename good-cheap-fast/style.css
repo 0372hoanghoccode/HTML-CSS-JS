@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -11,15 +13,31 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #93bbff);
+  color: #fff;
   overflow: hidden;
   margin: 0;
 }
+
+h2{
+  text-transform: uppercase;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  color: #ddd;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
 
 .toggle-container {
   display: flex;
   align-items: center;
   margin: 10px 0;
-  width: 200px;
+  width: 220px;
+  justify-content: space-between;
 }
 
 .toggle {
@@ -32,26 +50,27 @@ body {
   border-radius: 50px;
   cursor: pointer;
   display: inline-block;
-  margin: 0 15px 0;
-  width: 80px;
-  height: 40px;
+  width: 90px;
+  height: 45px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .toggle:checked + .label {
-  background-color: #8e44ad;
+  background-color: #72b6e0;
+  box-shadow: 0 4px 12px rgba(142, 68, 173, 0.6);
 }
 
 .ball {
   background: #fff;
-  height: 34px;
-  width: 34px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   position: absolute;
-  top: 3px;
-  left: 3px;
-  align-items: center;
-  justify-content: center;
+  top: 2.5px;
+  left: 2.5px;
   animation: slideOff 0.3s linear forwards;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .toggle:checked + .label .ball {
@@ -63,21 +82,31 @@ body {
     transform: translateX(0) scale(1);
   }
   50% {
-    transform: translateX(20px) scale(1.2);
+    transform: translateX(25px) scale(1.2);
   }
   100% {
-    transform: translateX(40px) scale(1);
+    transform: translateX(45px) scale(1);
   }
 }
 
 @keyframes slideOff {
   0% {
-    transform: translateX(40px) scale(1);
+    transform: translateX(45px) scale(1);
   }
   50% {
-    transform: translateX(20px) scale(1.2);
+    transform: translateX(25px) scale(1.2);
   }
   100% {
     transform: translateX(0) scale(1);
   }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  color: #ddd;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
 }
