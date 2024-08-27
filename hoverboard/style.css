@@ -5,6 +5,7 @@
 body {
   background-color: #111;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -12,12 +13,50 @@ body {
   margin: 0;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1000;
+  color: #888;
+  font-size: 1.5rem;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 400px;
+  max-width: 420px;
+  margin-top: 60px; /* To make room for the fixed header */
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .square {
@@ -25,10 +64,48 @@ body {
   box-shadow: 0 0 2px #000;
   height: 16px;
   width: 16px;
-  margin: 2px;
-  transition: 2s ease;
+  margin: 3px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  position: relative; /* Để đảm bảo hiệu ứng pseudo-element hoạt động đúng */
 }
 
 .square:hover {
-  transition-duration: 0s;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.square.hovered {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.8);
+  transition: background-color 1s ease, box-shadow 1s ease;
+}
+
+.square.hovered-transition {
+  transition: none; /* Đảm bảo không có chuyển tiếp khi thêm lớp mới */
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1000;
+  color: #888;
+  font-size: 1rem;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.8);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
