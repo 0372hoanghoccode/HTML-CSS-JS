@@ -15,3 +15,4 @@ function getRandomSize() {
 function getRandomNr() {
     return Math.floor(Math.random() * 10) + 300
 }
+// bị gì đó không load ra ảnh khá vớ vẫn nên bỏ qua
