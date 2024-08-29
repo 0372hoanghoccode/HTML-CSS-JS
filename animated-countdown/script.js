@@ -1,40 +1,49 @@
-const nums = document.querySelectorAll('.nums span');
-const counter = document.querySelector('.counter');
-const finalMessage = document.querySelector('.final');
-const replay = document.querySelector('#replay');
+const nums = document.querySelectorAll('.nums span')
+const counter = document.querySelector('.counter')
+const finalMessage = document.querySelector('.final')
+const replay = document.querySelector('#replay')
 
-runAnimation();
+// Khởi chạy hoạt ảnh
+chayHoatAnh()
 
-function resetDOM() {
-  counter.classList.remove('hide');
-  finalMessage.classList.remove('show');
+// Hàm đặt lại giao diện DOM về trạng thái ban đầu
+function datLaiDOM() {
+  counter.classList.remove('hide')
+  finalMessage.classList.remove('show')
 
+  // Xóa tất cả các lớp CSS khỏi các phần tử span
   nums.forEach((num) => {
-    num.classList.value = '';
-  });
+    num.classList.value = ''
+  })
 
-  nums[0].classList.add('in');
+  // Thêm lớp 'in' cho phần tử đầu tiên
+  nums[0].classList.add('in')
 }
 
-function runAnimation() {
+// Hàm chạy hoạt ảnh cho từng số
+function chayHoatAnh() {
   nums.forEach((num, idx) => {
-    const nextToLast = nums.length - 1;
+    const truocCuoi = nums.length - 1
 
     num.addEventListener('animationend', (e) => {
-      if (e.animationName === 'goIn' && idx !== nextToLast) {
-        num.classList.remove('in');
-        num.classList.add('out');
+      if (e.animationName === 'goIn' && idx !== truocCuoi) {
+        // Khi hoạt ảnh 'goIn' kết thúc, nếu không phải là phần tử cuối cùng, chuyển sang 'out'
+        num.classList.remove('in')
+        num.classList.add('out')
       } else if (e.animationName === 'goOut' && num.nextElementSibling) {
-        num.nextElementSibling.classList.add('in');
+        // Khi hoạt ảnh 'goOut' kết thúc, kích hoạt hoạt ảnh 'in' cho phần tử tiếp theo
+        num.nextElementSibling.classList.add('in')
       } else {
-        counter.classList.add('hide');
-        finalMessage.classList.add('show');
+        // Khi hoạt ảnh kết thúc cho tất cả các số, ẩn .counter và hiện .final
+        counter.classList.add('hide')
+        finalMessage.classList.add('show')
       }
-    });
-  });
+    })
+  })
 }
 
+// Thêm sự kiện click vào nút replay
 replay.addEventListener('click', () => {
-  resetDOM();
-  runAnimation();
-});
+  datLaiDOM()  // Đặt lại trạng thái ban đầu
+  chayHoatAnh()  // Chạy lại hoạt ảnh
+})

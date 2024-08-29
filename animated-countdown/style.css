@@ -1,40 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f3ec78, #af4261);
-  color: #fff;
-}
-
-.counter {
-  text-align: center;
-}
-
-.nums {
-  display: flex;
-  justify-content: center;
-  font-size: 5rem;
-  letter-spacing: 0.5rem;
-}
-
-.nums span {
-  opacity: 0;
-  transform: scale(0);
-  animation: goIn 0.5s ease-in forwards;
-}
-
-span.out {
-  animation: goOut 0.5s ease-in forwards;
+  background: linear-gradient(135deg, #6D83F2, #A3A1FF);
+  color: #ffffff;
+  overflow: hidden;
 }
 
 h4 {
-  margin-top: 20px;
-  font-weight: 400;
+  font-size: 1.2rem;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
   opacity: 0;
-  animation: fadeIn 1.5s ease-in forwards 2.5s;
+  animation: fadeIn 1s ease forwards 2.5s;
+}
+
+.counter {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.counter.hide {
+  transform: scale(0);
+  animation: hide 0.4s ease-out forwards;
+}
+
+@keyframes hide {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
 }
 
 .final {
@@ -44,50 +58,112 @@ h4 {
 
 .final.show {
   display: block;
+  animation: show 0.5s ease-out forwards;
 }
 
-.final h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  animation: fadeIn 0.5s ease-in forwards;
+@keyframes show {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-#replay {
-  background: #ffffff;
-  color: #af4261;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.nums {
+  font-size: 5rem;
+  letter-spacing: 0.2rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
 }
 
-#replay:hover {
-  transform: scale(1.1);
-  background-color: #ffefef;
+.nums span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(45deg);
+  opacity: 0;
+  transform-origin: center;
+  transition: all 0.6s ease-in-out;
+}
+
+.nums span.in {
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  opacity: 1;
+  animation: goIn 0.6s ease-in-out forwards;
+}
+
+.nums span.out {
+  transform: translate(-50%, -50%) scale(0.8) rotate(-45deg);
+  opacity: 0;
+  animation: goOut 0.6s ease-in-out forwards;
 }
 
 @keyframes goIn {
   0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);
     opacity: 0;
-    transform: scale(0);
   }
   100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
     opacity: 1;
-    transform: scale(1);
   }
 }
 
 @keyframes goOut {
   0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
     opacity: 1;
-    transform: scale(1);
   }
   100% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(30deg);
     opacity: 0;
-    transform: scale(3);
   }
+}
+
+#replay {
+  background-color: #ffffff;
+  border: none;
+  color: #6D83F2;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+#replay span {
+  position: relative;
+  transition: 0.3s;
+}
+
+#replay span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: all 0.3s ease;
+}
+
+#replay:hover {
+  background-color: #6D83F2;
+  color: #ffffff;
+}
+
+#replay:hover span {
+  padding-right: 15px;
+}
+
+#replay:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 @keyframes fadeIn {
@@ -97,4 +173,12 @@ h4 {
   100% {
     opacity: 1;
   }
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+  width: 100%;
 }
