@@ -61,3 +61,5 @@ function updateLS() {
 
     localStorage.setItem('notes', JSON.stringify(notes))
 }
+
+//từng làm rồi không làm nữa
