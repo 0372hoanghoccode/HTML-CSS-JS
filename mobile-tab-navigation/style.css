@@ -1,74 +1,94 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-* {
+*{
   box-sizing: border-box;
 }
 
 body {
-  background-color: rgba(155, 89, 182, 0.7);
-  font-family: 'Open Sans', sans-serif;
+  background-color: #f0f2f5;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .phone {
-  position: relative;
+  width: 350px;
+  height: 700px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  border: 3px solid #eee;
-  border-radius: 15px;
-  height: 600px;
-  width: 340px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.phone .content {
-  opacity: 0;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: calc(100% - 60px);
+.screen {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen img {
   width: 100%;
-  transition: opacity 0.4s ease;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  transition: opacity 0.5s ease;
 }
 
-.phone .content.show {
+.screen img.show {
+  display: block;
   opacity: 1;
 }
 
 nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: -5px;
-  width: 100%;
+  height: 10%;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 nav ul {
-  background-color: #fff;
+  list-style: none;
   display: flex;
-  list-style-type: none;
+  justify-content: space-around;
+  width: 100%;
   padding: 0;
   margin: 0;
-  height: 60px;
 }
 
-nav li {
-  color: #777;
-  cursor: pointer;
-  flex: 1;
-  padding: 10px;
+nav ul li {
   text-align: center;
+  flex: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+nav ul li i {
+  font-size: 24px;
+  color: #888;
 }
 
 nav ul li p {
   font-size: 12px;
-  margin: 2px 0;
+  color: #888;
 }
 
-nav ul li:hover,
 nav ul li.active {
-  color: #8e44ad;
+  background-color: #cdcaca;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+}
+
+nav ul li.active i,
+nav ul li.active p {
+  color: #fff;
 }
