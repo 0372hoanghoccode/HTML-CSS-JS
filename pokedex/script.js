@@ -1,7 +1,7 @@
 const poke_container = document.getElementById('poke-container');
-const pokemon_count = 150;
+const pokemon_count = 150; 
 const pokemons_per_page = 20;
-let current_page = 1;
+let current_page = 1; 
 let all_pokemons = [];
 
 const colors = {
@@ -23,17 +23,20 @@ const colors = {
 
 const main_types = Object.keys(colors);
 
-const fetchPokemons = async () => {
+//tải Pokemon theo trang
+const fetchPokemons = async (filtered_pokemons = []) => {
     poke_container.innerHTML = ''; 
 
+    const pokemons_to_show = filtered_pokemons.length ? filtered_pokemons : all_pokemons;
     const start = (current_page - 1) * pokemons_per_page;
     const end = current_page * pokemons_per_page;
-    const paginated_pokemons = all_pokemons.slice(start, end);
+    const paginated_pokemons = pokemons_to_show.slice(start, end);
 
     paginated_pokemons.forEach(pokemon => createPokemonCard(pokemon));
-    createPagination();
+    createPagination(filtered_pokemons);
 };
 
+// dữ liệu Pokemon từ API
 const getPokemon = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
@@ -41,6 +44,7 @@ const getPokemon = async (id) => {
     return data;
 };
 
+// tải tất cả Pokemon
 const loadAllPokemons = async () => {
     for (let i = 1; i <= pokemon_count; i++) {
         const pokemon = await getPokemon(i);
@@ -49,6 +53,7 @@ const loadAllPokemons = async () => {
     fetchPokemons();
 };
 
+// tạo thẻ  Pokemon
 const createPokemonCard = (pokemon) => {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
@@ -75,16 +80,87 @@ const createPokemonCard = (pokemon) => {
 
     pokemonEl.innerHTML = pokemonInnerHTML;
 
+    pokemonEl.addEventListener('click', () => showPokemonDetails(pokemon.id));
+
     poke_container.appendChild(pokemonEl);
 };
 
-const createPagination = () => {
+//hiện chi tiết Pokemon trong modal
+const showPokemonDetails = async (id) => {
+    const pokemon = await getPokemon(id);
+    const modal = document.getElementById('pokemon-modal');
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const type = pokemon.types.map(type => type.type.name).join(', ');
+    const abilities = pokemon.abilities.map(ability => ability.ability.name).join(', ');
+
+    document.getElementById('modal-name').innerText = name;
+    document.getElementById('modal-img').src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+    document.getElementById('modal-type').innerText = type;
+    document.getElementById('modal-height').innerText = pokemon.height;
+    document.getElementById('modal-weight').innerText = pokemon.weight;
+    document.getElementById('modal-abilities').innerText = abilities;
+
+    showEvolutionChain(pokemon.id);
+
+    modal.style.display = 'block';
+};
+
+// hiện tiến hóa Pokemon
+const showEvolutionChain = async (pokemonId) => {
+    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
+    const speciesRes = await fetch(speciesUrl);
+    const speciesData = await speciesRes.json();
+    const evolutionChainUrl = speciesData.evolution_chain.url;
+    
+    const evolutionRes = await fetch(evolutionChainUrl);
+    const evolutionData = await evolutionRes.json();
+    
+    const evolutionContainer = document.getElementById('evolution-container');
+    evolutionContainer.innerHTML = ''; 
+
+    let currentEvolution = evolutionData.chain;
+
+    while (currentEvolution) {
+        const img = document.createElement('img');
+        const evoPokemonId = currentEvolution.species.url.split('/')[6];
+        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evoPokemonId}.png`;
+        evolutionContainer.appendChild(img);
+
+        currentEvolution = currentEvolution.evolves_to[0];
+    }
+    
+    const modalImg = document.getElementById('modal-img');
+    modalImg.addEventListener('mouseover', () => {
+        evolutionContainer.style.display = 'block';
+    });
+
+    modalImg.addEventListener('mouseout', () => {
+        evolutionContainer.style.display = 'none';
+    });
+};
+
+// đóng modal 
+const modal = document.getElementById('pokemon-modal');
+const closeBtn = document.querySelector('.modal .close');
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
+//tạo pagination
+const createPagination = (filtered_pokemons = []) => {
     const pagination_container = document.getElementById('pagination');
     pagination_container.innerHTML = ''; 
 
-    const total_pages = Math.ceil(all_pokemons.length / pokemons_per_page);
+    const pokemons_to_paginate = filtered_pokemons.length ? filtered_pokemons : all_pokemons;
+    const total_pages = Math.ceil(pokemons_to_paginate.length / pokemons_per_page);
 
-    // Create Prev button
     const prev_button = document.createElement('button');
     prev_button.classList.add('page-button');
     prev_button.innerText = '<<';
@@ -92,7 +168,7 @@ const createPagination = () => {
 
     prev_button.addEventListener('click', () => {
         current_page--;
-        fetchPokemons();
+        fetchPokemons(filtered_pokemons);
     });
 
     pagination_container.appendChild(prev_button);
@@ -117,7 +193,7 @@ const createPagination = () => {
 
         page_button.addEventListener('click', () => {
             current_page = i;
-            fetchPokemons();
+            fetchPokemons(filtered_pokemons);
         });
 
         pagination_container.appendChild(page_button);
@@ -130,50 +206,59 @@ const createPagination = () => {
 
     next_button.addEventListener('click', () => {
         current_page++;
-        fetchPokemons();
+        fetchPokemons(filtered_pokemons);
     });
 
     pagination_container.appendChild(next_button);
 };
 
+// hiện loading
 const showLoading = () => {
     const loadingEl = document.createElement('div');
     loadingEl.classList.add('loading');
-    loadingEl.innerHTML = '<div class="spinner"></div><p>Loading Pokémon...</p>';
+    loadingEl.innerHTML = '<div class="spinner"></div><p>Loading Pokemon...</p>';
     document.body.appendChild(loadingEl);
-}
+};
 
+// ẩn loading
 const hideLoading = () => {
     const loadingEl = document.querySelector('.loading');
     if (loadingEl) {
         loadingEl.remove();
     }
-}
+};
 
+// tìm pokemon
 const searchPokemon = (name) => {
     const filtered_pokemons = all_pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(name.toLowerCase()));
-    poke_container.innerHTML = '';
-    filtered_pokemons.forEach(pokemon => createPokemonCard(pokemon));
-}
+    current_page = 1; // reset trang về 1
+    fetchPokemons(filtered_pokemons);
+};
 
+// thêm tìm kiếm
 const addSearchBar = () => {
     const searchContainer = document.createElement('div');
     searchContainer.classList.add('search-container');
 
     const searchInput = document.createElement('input');
-    searchInput.type = 'text';
-    searchInput.placeholder = 'Search Pokémon...';
-    searchInput.addEventListener('input', (e) => searchPokemon(e.target.value));
+    searchInput.setAttribute('type', 'text');
+    searchInput.setAttribute('placeholder', 'Search Pokemon...');
+    searchInput.classList.add('search-bar');
+
+    searchInput.addEventListener('input', (event) => {
+        searchPokemon(event.target.value);
+    });
 
     searchContainer.appendChild(searchInput);
     document.body.insertBefore(searchContainer, poke_container);
-}
+};
 
+// khỏi tạo
 const init = async () => {
-    addSearchBar();
     showLoading();
     await loadAllPokemons();
     hideLoading();
-}
+    addSearchBar();
+};
 
 init();

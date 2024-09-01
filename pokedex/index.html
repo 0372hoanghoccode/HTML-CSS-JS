@@ -9,15 +9,34 @@
   <body>
     <h1>Pokedex</h1>
     <div class="poke-container" id="poke-container"></div>
+
+    <div id="pokemon-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-name"></h2>
+        <img id="modal-img" src="" alt="Pokémon image">
+        <p><strong>Type:</strong> <span id="modal-type"></span></p>
+        <p><strong>Height:</strong> <span id="modal-height"></span> dm</p>
+        <p><strong>Weight:</strong> <span id="modal-weight"></span> hg</p>
+        <p><strong>Abilities:</strong> <span id="modal-abilities"></span></p>
+        
+        <div id="evolution-container" class="evolution-container">
+          <h3>Evolution</h3>
+          <div class="evolution-images">
+          </div>
+        </div>
+      </div>
+    </div>  
+    
     <div id="pagination" class="pagination"></div>
+
     <footer>
       <p>
         Data from
-        <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer"
-          >PokeAPI</a
-        >
+        <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">PokeAPI</a>
       </p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
